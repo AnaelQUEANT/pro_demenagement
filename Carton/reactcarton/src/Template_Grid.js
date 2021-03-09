@@ -9,8 +9,8 @@ class TemplateGrid extends React.Component {
 
     render() {
       return (
-        <div class="grid-item">
-            {this.props.mess}
+        <div class="grid-item" onClick="" >
+            <a class="nav-link" aria-current="page" href="CreationCarton">{this.props.mess}</a>
         </div>
       )
     }
