@@ -41,7 +41,9 @@ class ListeSalles extends React.Component {
       return (
         <div class="grid-container">
             
-            <input class="favorite styled" type="button" value="Ajouter un carton"/>
+            <div class="grid-item" >
+            <a class="nav-link" aria-current="page" href="CreationCarton">Ajouter un carton</a>
+            </div>
 
             {this.state.text}
         </div>

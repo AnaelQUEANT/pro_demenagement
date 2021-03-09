@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import ListeSalles from './Liste_Salles.js'
+import CreationCarton from './Creation_Carton.js'
 
 
 class App extends React.Component {
@@ -15,8 +16,6 @@ class App extends React.Component {
     super(props)
 
   }
-
-  
   
   render() {
     return (
@@ -25,6 +24,7 @@ class App extends React.Component {
                     <div>
                          <Switch>
                             <Route path="/ListeSalles" component={ListeSalles} />
+                            <Route path="/CreationCarton" component={CreationCarton} />
                        </Switch>
                     </div>
                 </BrowserRouter>
