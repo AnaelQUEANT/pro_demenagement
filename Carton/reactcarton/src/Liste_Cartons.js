@@ -1,7 +1,7 @@
 import React from 'react'
-import TemplateGrid from './Template_Grid.js'
+import TemplateListe from './Template_Liste.js'
 
-class ListeSalles extends React.Component {
+class ListeCartons extends React.Component {
 
     constructor(props) {
       super(props);
@@ -24,12 +24,12 @@ class ListeSalles extends React.Component {
                 var test = this.state.tab;
                 var tableauID = [];
                 for(var i=0;i<response.length;i++){
-                    test[i] = { nom: "Salon", id : "1" ,nbCarton : "5"};
+                    test[i] = { photo:  response[i].photo, id : response[i].id, origine :  response[i].origine, destination : response[i].destination, dim : response[i].largeur + "x" +  response[i].longueur + "x" +  response[i].hauteur, fragile : response[i].fragile,};
 
                 }
                 console.log(this.state.tab.length);
                 var listItems = this.state.tab.map(e => (
-                    <TemplateGrid mess={e.nom} id={e.id} nbCarton={e.nbCarton} />
+                    <TemplateListe photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} dim={e.dim} fragile={e.fragile} idBouton={e.id} />
         
                 ));
                 this.setState({text:listItems})
@@ -39,15 +39,11 @@ class ListeSalles extends React.Component {
 
     render() {
       return (
-        <div class="grid-container">
-            
-            <div class="grid-item" >
-            <a class="nav-link" aria-current="page" href="CreationCarton">Ajouter un carton</a>
-            </div>
-
+        <div >
+  
             {this.state.text}
         </div>
       )
     }
   }
-  export default ListeSalles
+  export default ListeCartons

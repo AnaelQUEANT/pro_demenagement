@@ -10,14 +10,23 @@ class CreationCarton extends React.Component {
     render() {
       return (
         <form>
+            <br/>
             <div class="form-group">
-                <label for="formGroupExampleInput">Example label</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input"></input>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Destination"></input>
             </div>
+            <br/>
             <div class="form-group">
-                <label for="formGroupExampleInput2">Another label</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input"/>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Origine"/>
             </div>
+            <br/>
+            <div>
+                <div class="row">
+                    <input type="text" class="form-control col-sm" id="formGroupExampleInput" placeholder="Largeur"></input>
+                    <input type="text" class="form-control col-sm" id="formGroupExampleInput" placeholder="Longueur"></input>
+                    <input type="text" class="form-control col-sm" id="formGroupExampleInput" placeholder="Hauteur"></input>
+                </div>
+            </div>
+            
 
         </form>
       )
