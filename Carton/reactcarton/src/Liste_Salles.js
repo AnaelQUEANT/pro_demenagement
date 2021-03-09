@@ -1,15 +1,49 @@
 import React from 'react'
+import TemplateGrid from './Template_Grid.js'
 
 class ListeSalles extends React.Component {
 
     constructor(props) {
-      super(props)
+      super(props);
+      this.state = {
+        value: '',
+        text : '',
+        tab : []
+      };
     }
     
+    componentDidMount() {
+
+        let monAPI = "http://localhost:7249/LesMessages/";
+
+        console.log("api : " + monAPI);
+        fetch(monAPI)
+            .then(response => response.json())
+            .then(response => {
+                this.state.tab = [];
+                var test = this.state.tab;
+                var tableauID = [];
+                for(var i=0;i<response.length;i++){
+                    test[i] = { Message: "Salon" };
+
+                }
+                console.log(this.state.tab.length);
+                var listItems = this.state.tab.map(e => (
+                    <TemplateGrid mess={e.Message} idBouton={e.id} />
+        
+                ));
+                this.setState({text:listItems})
+                
+            });
+        }
+
     render() {
       return (
-        <div>
-          <h2>Liste des cartons</h2>
+        <div class="grid-container">
+            
+            <input class="favorite styled" type="button" value="Ajouter un carton"/>
+
+            {this.state.text}
         </div>
       )
     }
