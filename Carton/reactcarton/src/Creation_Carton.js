@@ -42,12 +42,26 @@ class CreationCarton extends React.Component {
         <form>
             <br/>
             <div>
-            <form>
-              <div class="form-group">
-                <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
-              </div>
-            </form>
+              <form>
+                <div class="form-group">
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
+                </div>
+              </form>
             </div>
+            <br/>
+            <div>
+                <div>
+                  <input type="color" id="head" name="head" />
+                </div>
+            </div>
+            <br/>
+            <div>
+              <div>
+                <input type="checkbox" id="Fragile" name="Fragile"/>
+                <label for="scales">Fragile</label>
+              </div>
+            </div>
+            <br/>
             <div class="form-group">
                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Destination"></input>
             </div>
