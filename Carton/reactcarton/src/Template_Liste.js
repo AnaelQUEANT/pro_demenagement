@@ -9,7 +9,7 @@ class TemplateListe extends React.Component {
                     <p>{this.props.photo}</p>
                     <p>{this.props.id}</p>
                     <div>
-                        <p>{this.props.orgine} vers {this.props.destination}</p>
+                        <p>{this.props.origine} vers {this.props.destination}</p>
                         <p>Dim : {this.props.dim}</p>
                         <p>{this.props.fragile}</p>
                     </div>

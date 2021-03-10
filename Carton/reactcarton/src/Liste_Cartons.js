@@ -30,7 +30,7 @@ class ListeCartons extends React.Component {
                 var test = this.state.tab;
                 var tableauID = [];
                 for(var i=0;i<response.length;i++){
-                    test[i] = { photo:  response[i].Carton_photo, id : response[i].Carton_id, origine :  response[i].Carton_origine, destination : response[i].Carton_destination, dim : response[i].Carton_largeur + "x" +  response[i].Carton_longueur + "x" +  response[i].Carton_hauteur, fragile : response[i].Carton_fragile,};
+                    test[i] = { photo:  response[i].Carton_photo, id : response[i].Carton_id, origine :  response[i].Carton_origine, destination : response[i].Piece_nom, dim : response[i].Carton_largeur + "x" +  response[i].Carton_longueur + "x" +  response[i].Carton_hauteur, fragile : response[i].Carton_fragile,};
 
                 }
                 console.log(this.state.tab.length);
