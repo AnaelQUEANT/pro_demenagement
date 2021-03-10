@@ -26,7 +26,7 @@ app.get('/lesPieces/:idSalle', (req, res) => {
     setupConnection();
     connection.connect((err) => {
         if(err) throw err;
-        let requete = 'SELECT Piece.Piece_nom, COUNT(Carton.Carton_id) as nbCarton ';
+        let requete = 'SELECT Piece.Piece_nom, Piece.Piece_id COUNT(Carton.Carton_id) as nbCarton ';
         requete += 'from Piece left JOIN Carton on Piece.Piece_id = Carton.Piece_id ';
         requete += 'WHERE Piece.Logement_id = ' + id + ' ';
         requete += 'GROUP BY Piece.Piece_id;'
