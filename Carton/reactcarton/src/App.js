@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {
     BrowserRouter,
-    Link,
     Route,
     Switch
 } from 'react-router-dom'
@@ -12,11 +11,6 @@ import ListeCartons from './Liste_Cartons.js'
 
 
 class App extends React.Component {
-
-  constructor(props) {
-    super(props)
-
-  }
   
   render() {
     return (
