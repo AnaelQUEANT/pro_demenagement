@@ -56,6 +56,21 @@ app.get('/lesCartons/:idSalle', (req, res) => {
     })
 })
 
+app.get('/lesObjets/', (req, res) => {
+    const id = req.params.idSalle;
+    setupConnection();
+    connection.connect((err) => {
+        if(err) throw err;
+        let requete = 'SELECT * from Equipement_Carton ';
+        connection.query(requete, function (error, results, fields){
+            if(error) throw error;
+            res.send(results);
+        })
+        connection.end();
+    })
+})
+
+
 app.listen(16500, () => {
     console.log('Serveur à l écoute')
 })
