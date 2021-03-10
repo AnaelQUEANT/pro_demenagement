@@ -58,7 +58,7 @@ class CreationCarton extends React.Component {
             <div>
               <div>
                 <input type="checkbox" id="Fragile" name="Fragile"/>
-                <label for="scales">Fragile</label>
+                <label for="Fragile">Fragile</label>
               </div>
             </div>
             <br/>

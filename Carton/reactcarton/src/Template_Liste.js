@@ -17,7 +17,7 @@ class TemplateListe extends React.Component {
                     <p>Dim : {this.props.dim}</p>
                     <p>{this.props.fragile}</p>
                 </div>
-                <input type="button" value="Modifier"></input>
+                <a class="nav-link" aria-current="page" href={"ModifierCarton?id="+this.props.id}>Modifier</a>
             </div>
  
              
