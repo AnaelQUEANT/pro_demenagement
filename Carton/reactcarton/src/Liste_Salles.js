@@ -14,7 +14,7 @@ class ListeSalles extends React.Component {
     
     componentDidMount() {
 
-        let monAPI = "http://localhost:7249/LesMessages/";
+        let monAPI = "http://localhost:16500/LesPieces/" + "1";
 
         console.log("api : " + monAPI);
         fetch(monAPI)
@@ -24,7 +24,7 @@ class ListeSalles extends React.Component {
                 var test = this.state.tab;
                 var tableauID = [];
                 for(var i=0;i<response.length;i++){
-                    test[i] = { nom: "Salon", id : "1" ,nbCarton : "5"};
+                    test[i] = { nom: response[i].Piece_nom, id : response[i].Piece_id ,nbCarton : response[i].nbCarton};
 
                 }
                 console.log(this.state.tab.length);
@@ -42,7 +42,7 @@ class ListeSalles extends React.Component {
         <div class="grid-container">
             
             <div class="grid-item" >
-            <a class="nav-link" aria-current="page" href="CreationCarton">Ajouter un carton</a>
+                <a  class="nav-link" aria-current="page" href="CreationCarton">Ajouter un carton</a>
             </div>
 
             {this.state.text}
