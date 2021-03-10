@@ -20,7 +20,7 @@ export const MobilierList = (props) => {
 
   // Execute à chaque changement de valeur de '[]'
   useEffect(() => {
-    console.log("useEffect[mobiliers]")
+
   }, [mobiliers])
 
 
@@ -30,16 +30,10 @@ export const MobilierList = (props) => {
       <li key={i}>{e.Mobilier_nom}</li>
     )
   })
-
-
-
-
-
   
   return (
-    <ul>
-      {MobiList}
-    </ul>
-
+    <ul>{MobiList}
+</ul>
+      
   );
 }

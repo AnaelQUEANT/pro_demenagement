@@ -53,6 +53,35 @@ app.get('/carton', (req, res) => {
     })
 })
 
+app.get('/piece', (req, res) => {
+    setupConnection();
+    connection.connect((err) => {
+        if (err) throw err;
+        console.log("Connecté !");
+        connection.query("SELECT * from Liste_Piece ", function (error, results, fields) {
+            if (error) throw error;
+            res.send(results);
+            
+        })
+        connection.end();
+    })
+})
+
+app.get('/cartonPiece/:idPiece', (req, res) => {
+    const id = req.params.idPiece;
+    setupConnection();
+    connection.connect((err) => {
+        if (err) throw err;
+        console.log("Connecté !");
+        connection.query('SELECT * from Mobilier where Piece_id='+id, function (error, results, fields) {
+            if (error) throw error;
+            res.send(results);
+            
+        })
+        connection.end();
+    })
+})
+
 app.listen(16501, () => {
     console.log('Serveur à l écoute')
 })

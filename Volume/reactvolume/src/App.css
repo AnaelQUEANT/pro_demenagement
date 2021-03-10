@@ -1,7 +1,21 @@
-.App {
+/* .App {
+  text-align: center;
+} */
+.titre {
   text-align: center;
 }
-
+.menu {
+  display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: flex-start;
+}
+.menu button span{
+  background-color: white;
+  border: 0px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
