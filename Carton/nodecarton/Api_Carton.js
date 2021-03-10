@@ -44,6 +44,7 @@ app.get('/lesCartons/:idSalle', (req, res) => {
     connection.connect((err) => {
         if(err) throw err;
         let requete = 'SELECT * from Carton ';
+        requete += 'left join Piece using (Piece_id)';
         requete += 'where Carton.Piece_id = ' + id;
         connection.query(requete, function (error, results, fields){
             if(error) throw error;
