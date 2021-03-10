@@ -53,6 +53,10 @@ app.get('/carton', (req, res) => {
     })
 })
 
+app.listen(16501, () => {
+    console.log('Serveur à l écoute')
+})
+
 /*app.get('/affichette/:idAffichette', (req, res) => {
     const id = req.params.idAffichette;
     setupConnection();
