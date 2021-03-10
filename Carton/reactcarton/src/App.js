@@ -8,6 +8,7 @@ import {
 import ListeSalles from './Liste_Salles.js'
 import CreationCarton from './Creation_Carton.js'
 import ListeCartons from './Liste_Cartons.js'
+import ModifierCarton from './Modifier_Carton.js'
 
 
 class App extends React.Component {
@@ -21,6 +22,7 @@ class App extends React.Component {
                             <Route path="/ListeSalles" component={ListeSalles} />
                             <Route path="/CreationCarton" component={CreationCarton} />
                             <Route path="/ListeCartons" component={ListeCartons} />
+                            <Route path="/ModifierCarton" component={ModifierCarton} />
                        </Switch>
                     </div>
                 </BrowserRouter>
