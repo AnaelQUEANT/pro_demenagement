@@ -71,7 +71,7 @@ app.get('/lesObjets/', (req, res) => {
 })
 
 app.get('/infoCarton/:id', (req, res) => {
-    const id = req.params.idSalle;
+    const id = req.params.id;
     setupConnection();
     connection.connect((err) => {
         if(err) throw err;
