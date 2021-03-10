@@ -85,6 +85,23 @@ app.get('/infoCarton/:id', (req, res) => {
     })
 })
 
+app.get('/objetCarton/:id', (req, res) => {
+    const id = req.params.id;
+    setupConnection();
+    connection.connect((err) => {
+        if(err) throw err;
+        let requete = 'SELECT * from Carton ';
+        requete += 'inner join Carton_has_Equipement using(Carton_id) ';
+        requete += 'inner join Equipement_Carton using(Equipement_Carton_id) ';
+        requete += 'where Carton.Carton_id = ' + id;
+        connection.query(requete, function (error, results, fields){
+            if(error) throw error;
+            res.send(results);
+        })
+        connection.end();
+    })
+})
+
 
 app.listen(16500, () => {
     console.log('Serveur à l écoute')
