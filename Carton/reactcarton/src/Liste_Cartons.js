@@ -21,10 +21,8 @@ class ListeCartons extends React.Component {
 
     componentDidMount() {
 
-        let monAPI = "http://localhost:16500/lesCartons/" + "1";
+        let monAPI = "http://localhost:16500/lesCartons/" + this.getArgument(this.state.get);
 
-        console.log("api : " + monAPI);
-        console.log(this.getArgument(this.state.get));
         fetch(monAPI)
             .then(response => response.json())
             .then(response => {
@@ -32,7 +30,7 @@ class ListeCartons extends React.Component {
                 var test = this.state.tab;
                 var tableauID = [];
                 for(var i=0;i<response.length;i++){
-                    test[i] = { photo:  response[i].photo, id : response[i].id, origine :  response[i].origine, destination : response[i].destination, dim : response[i].largeur + "x" +  response[i].longueur + "x" +  response[i].hauteur, fragile : response[i].fragile,};
+                    test[i] = { photo:  response[i].Carton_photo, id : response[i].Carton_id, origine :  response[i].Carton_origine, destination : response[i].Carton_destination, dim : response[i].Carton_largeur + "x" +  response[i].Carton_longueur + "x" +  response[i].Carton_hauteur, fragile : response[i].Carton_fragile,};
 
                 }
                 console.log(this.state.tab.length);

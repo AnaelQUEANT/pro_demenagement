@@ -11,7 +11,7 @@ class TemplateGrid extends React.Component {
       return (
         <div class="grid-item" onClick="" >
             {this.props.nbCarton}
-            <a class="nav-link" aria-current="page" href={"ListeCartons?id="+this.props.mess}>{this.props.mess}</a>
+            <a class="nav-link" aria-current="page" href={"ListeCartons?id="+this.props.id}>{this.props.mess}</a>
         </div>
       )
     }

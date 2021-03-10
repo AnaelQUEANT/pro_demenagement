@@ -25,9 +25,9 @@ class ListeSalles extends React.Component {
                 var tableauID = [];
                 for(var i=0;i<response.length;i++){
                     test[i] = { nom: response[i].Piece_nom, id : response[i].Piece_id ,nbCarton : response[i].nbCarton};
-
+                    console.log("id : " + response[i].Piece_id);
                 }
-                console.log(this.state.tab.length);
+                console.log(test);
                 var listItems = this.state.tab.map(e => (
                     <TemplateGrid mess={e.nom} id={e.id} nbCarton={e.nbCarton} />
         
