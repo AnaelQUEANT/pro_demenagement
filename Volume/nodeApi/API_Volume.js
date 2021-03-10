@@ -53,7 +53,7 @@ app.get('/carton', (req, res) => {
     })
 })
 
-app.get('/affichette/:idAffichette', (req, res) => {
+/*app.get('/affichette/:idAffichette', (req, res) => {
     const id = req.params.idAffichette;
     setupConnection();
     connection.connect((err) => {
@@ -66,4 +66,4 @@ app.get('/affichette/:idAffichette', (req, res) => {
         })
         connection.end();
     })
-})
+})*/
