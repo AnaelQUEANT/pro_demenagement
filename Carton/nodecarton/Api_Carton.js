@@ -102,6 +102,31 @@ app.get('/objetCarton/:id', (req, res) => {
     })
 })
 
+app.push('/ajoutCarton', (req, res) =>{
+    const origine = req.body.origine;
+    const couleur = req.body.couleur;
+    const largeur = req.body.largeur;
+    const hauteur = req.body.hauteur;
+    const longueur = req.body.longueur;
+    const fragile = req.body.fragile;
+    const piece = req.body.piece;
+
+    if (!origine || !couleur || !largeur || !hauteur || !longueur || !fragile || !piece) {
+        res.send("Il manque des arguments");
+    }
+
+    setupConnection();
+    connection.connect((err) => {
+        if (err) throw err;
+        console.log("Connecté !");
+        connection.query('INSERT into Cartons values ( null, null, null, null, '+ origine +', '+ couleur +', '+ largeur +', '+ hauteur +', '+ longueur +', '+ fragile +', '+ piece +', null)', function (error, results, fields) {
+            if (error) throw error;
+            res.send("Ajout effecté");
+        })
+    })
+    connection.end();
+})
+
 
 app.listen(16500, () => {
     console.log('Serveur à l écoute')
