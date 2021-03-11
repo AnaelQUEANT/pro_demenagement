@@ -20,7 +20,10 @@ function App() {
         <SalleList />
       </div>
       <MobilierList />
-      <CompteurVolume />
+      <div className="compteur">
+        <CompteurVolume />
+      </div>
+      
     </div>
   );
 }

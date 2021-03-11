@@ -18,7 +18,14 @@
   background-color: white;
   border: 0px;
 }
-
+.compteur {
+  width: 80vw;
+  height: 15vh;
+  position: absolute;
+  left: 15vw;
+  top: 90vh;
+  
+}
 
 
 

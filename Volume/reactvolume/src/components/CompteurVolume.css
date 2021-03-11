@@ -5,7 +5,8 @@
     justify-content: center;
     align-content: stretch;
     align-items: flex-start;
-    background-color: crimson;
+    background-color: #dc3545;
+    border-radius: 10px;
   }
 .nbElements{
     color: #fff;
@@ -16,7 +17,8 @@
     padding: 16px;
 }   
 .boutons{
-    background-color: crimson;
+    background-color: #dc3545;
     border-color: #fff;
     margin: 16px;
+    border-radius: 5px;
 } 
