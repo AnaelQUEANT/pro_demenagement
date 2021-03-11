@@ -1,7 +1,6 @@
 import { useEffect, useState} from 'react';
 import { getSalle } from '../services/salle';
-import { getMobilier } from '../services/mobilier';
-import './ListeSalle.css';
+import './SalleList.css';
 
 export const SalleList = (props) => {
   // Créer une donnée réactive
@@ -13,7 +12,7 @@ export const SalleList = (props) => {
   useEffect(() => {
     // Execute une action au ComponentDidMount
     const getDatas = async () => {
-      const salle = await getMobilier();
+      const salle = await getSalle();
       setSalle(salle);
     }
     getDatas()
@@ -29,18 +28,16 @@ export const SalleList = (props) => {
 
   const SalleList = salles.map((e, i) => {
     return (
-
-      // https://getbootstrap.com/docs/5.0/components/button-group/#checkbox-and-radio-button-groups
-      // <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-      // <label class="btn btn-outline-primary" for="btnradio1">{e.Mobilier_nom}</label>
-
-      <button type="button"  className="col-sm-2 btn btn-outline-danger">{e.Mobilier_nom}</button>
+      <div key={i}>
+        <input type="button" className="btn-check" id={i} autoComplete="off"/>
+        <label className="btn btn-outline-danger" htmlFor={i}>{e.Nom_Piece}</label>
+      </div>
 
     )
   })
   
   return (
-    <div className="list-salle btn-group" >
+    <div className="list-salle btn-group" role="group">
       {SalleList}
     </div>
 

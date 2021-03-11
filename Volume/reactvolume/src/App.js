@@ -1,6 +1,7 @@
 import './App.css';
 import { MobilierList } from './components/MobilierList';
 import { SalleList } from './components/SalleList';
+import { CompteurVolume } from './components/CompteurVolume';
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
         <h1 className="titre"> Calculateur de volume </h1>
       </div>
     
-      <div className="row">
+      <div>
         <SalleList />
       </div>
       <MobilierList />
+      <CompteurVolume />
     </div>
   );
 }

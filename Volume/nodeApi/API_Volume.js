@@ -11,20 +11,22 @@ const fetch = require('node-fetch');
 // Middleware 
 app.use(express.json())
 
-var connection;
+
 
 function setupConnection(){
-    connection = mysql.createConnection({
+    let connection = mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
         password: process.env.DB_PWD,
         database: process.env.DB_NAME
     });
+    return connection;
 }
 
 
 
 app.get('/mobilier', (req, res) => {
+    let connection = setupConnection();
     setupConnection();
     connection.connect((err) => {
         if (err) throw err;
@@ -40,7 +42,7 @@ app.get('/mobilier', (req, res) => {
 
 
 app.get('/carton', (req, res) => {
-    setupConnection();
+    let connection = setupConnection();
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");
@@ -54,11 +56,11 @@ app.get('/carton', (req, res) => {
 })
 
 app.get('/piece', (req, res) => {
-    setupConnection();
+    let connection = setupConnection();
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");
-        connection.query("SELECT * from Liste_Piece ", function (error, results, fields) {
+        connection.query("SELECT * from Type_Piece ", function (error, results, fields) {
             if (error) throw error;
             res.send(results);
             
@@ -66,7 +68,7 @@ app.get('/piece', (req, res) => {
         connection.end();
     })
 })
-
+/*
 app.get('/cartonPiece/:idPiece', (req, res) => {
     const id = req.params.idPiece;
     setupConnection();
@@ -81,6 +83,7 @@ app.get('/cartonPiece/:idPiece', (req, res) => {
         connection.end();
     })
 })
+*/
 
 app.listen(16501, () => {
     console.log('Serveur à l écoute')
