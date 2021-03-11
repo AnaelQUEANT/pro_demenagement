@@ -45,7 +45,7 @@ class ListeCartons extends React.Component {
 
     render() {
       return (
-        <div >
+        <div class="row">
             {this.state.text}
         </div>
       )
