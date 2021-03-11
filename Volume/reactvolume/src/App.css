@@ -21,7 +21,7 @@
 .compteur {
   width: 80vw;
   height: 15vh;
-  position: absolute;
+  position: fixed;
   left: 15vw;
   top: 90vh;
   
