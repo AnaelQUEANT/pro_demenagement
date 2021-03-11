@@ -1,5 +1,6 @@
 import React from 'react'
-
+import './ListeSalle.css';
+import {Link} from 'react-router-dom'
 
 class TemplateGrid extends React.Component {
 
@@ -9,9 +10,14 @@ class TemplateGrid extends React.Component {
 
     render() {
       return (
-        <div class="grid-item" onClick="" >
-            {this.props.nbCarton}
-            <a class="nav-link" aria-current="page" href={"ListeCartons?id="+this.props.id}>{this.props.mess}</a>
+        <div className="list-salle btn-group col-4" >
+            <Link class="le-link" to={"ListeCartons?id="+this.props.id}>
+              <button type="button"  className="btn btn-outline-danger">
+                {this.props.nbCarton}
+                <br/>
+                {this.props.mess}
+              </button>
+            </Link>
         </div>
       )
     }
