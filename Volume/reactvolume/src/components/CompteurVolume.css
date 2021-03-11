@@ -1,0 +1,22 @@
+.boite{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: flex-start;
+    background-color: crimson;
+  }
+.nbElements{
+    color: #fff;
+    padding: 16px;
+}
+.surfaceTotal{
+    color: #fff;
+    padding: 16px;
+}   
+.boutons{
+    background-color: crimson;
+    border-color: #fff;
+    margin: 16px;
+} 
