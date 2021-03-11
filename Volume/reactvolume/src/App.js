@@ -16,9 +16,7 @@ function App() {
         <h1 className="titre"> Calculateur de volume </h1>
       </div>
     
-      <div>
-        <SalleList />
-      </div>
+      <SalleList />
       <MobilierList />
       <div className="compteur">
         <CompteurVolume />
