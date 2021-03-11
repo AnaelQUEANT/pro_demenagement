@@ -40,9 +40,18 @@ class Affichette extends React.Component {
   render() {
     return (
       <div>
-        <h2>Kess tu regardes, tarba ? </h2>
-        <button className="btn btn-success start" onClick={this.enregistrer} >Enregistrer</button>
+        <table>
+        <thead>
+        <tr> 
+        	<th>ID</th> 
+        	<th>Nom</th> 
+        	<th>Couleur</th> 
+        	<th>Taille</th> 
+        	<th>Logement</th> 
+        </tr>
+        </thead>
         {this.state.text}
+        </table>
       </div>
     )
   }

@@ -3,28 +3,33 @@ import React from 'react'
 class TemplateListe extends React.Component {
     render() {
       return (
-        <li id="message">
+
+        <tbody id="message">
             
-            <div class="row">
-                <div>
+            <tr classname="row">
+                <td className="col-3">
                     <p>{this.props.id}</p>
-                </div>
-                <div>
+                </td>
+                <td className="col-3">
                     <p>{this.props.nom}</p>
-                </div>
-                <div>
+                </td>
+                <td className="col-3">
                     <p>{this.props.couleur}</p>
-                </div>
-                <div>
+                </td>
+                <td className="col-3">
                     <p>{this.props.taille}</p>
-                </div>
-                <div>
+                </td>
+                <td className="col-3">
                     <p>{this.props.idLogement}</p>
-                </div>
-            </div>
+                </td>
+                <td className="col-3">
+                    <button>Imprimer</button>
+                </td>
+            </tr>
+
+        </tbody>
  
              
-        </li>
       );
     }
   }

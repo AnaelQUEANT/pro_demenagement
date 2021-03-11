@@ -36,13 +36,27 @@ app.get('/affichettes', (req, res) => {
     })
 })
 
-app.get('/affichette/:idAffichette', (req, res) => {
-    const id = req.params.idAffichette;
+app.get('/affichette/:idLogement', (req, res) => {
+    const id = req.params.idLogement;
     setupConnection();
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");
-        connection.query('SELECT * from Piece where Piece_id='+id, function (error, results, fields) {
+        connection.query('SELECT * from Piece where Logement_id='+id, function (error, results, fields) {
+            if (error) throw error;
+            res.send(results);
+            
+        })
+        connection.end();
+    })
+})
+
+app.get('/logement', (req, res) => {
+    setupConnection();
+    connection.connect((err) => {
+        if (err) throw err;
+        console.log("Connecté !");
+        connection.query('SELECT * from Logement', function (error, results, fields) {
             if (error) throw error;
             res.send(results);
             
@@ -52,171 +66,6 @@ app.get('/affichette/:idAffichette', (req, res) => {
 })
 
 
-
-/*app.get('/t_compte', (req, res) => {
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-        connection.query('SELECT * from t_compte', function (error, results, fields) {
-            if (error) throw error;
-            res.send(results);
-            
-        })
-        connection.end();
-    })
-})
-
-
-app.get('/t_enseignant', (req, res) => {
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-        connection.query('SELECT * from t_compte inner join t_enseignant on t_compte.id = t_enseignant.id', function (error, results, fields) {
-            if (error) throw error;
-            res.send(results);
-            
-        })
-        connection.end();
-    })
-})
-
-
-app.get('/CompteUtilisateur/:idCompte', (req, res) => {
-    const id = req.params.idCompte;
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-        connection.query('SELECT * from t_compte where id = '+id, function (error, results, fields) {
-            if (error) throw error;
-            res.send(results);
-            
-        })
-        connection.end();
-    })
-})
-
-
-app.get('/CompteUtilisateurLogin/:login', (req, res) => {
-    const login = req.params.login;
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-        connection.query('SELECT * from t_compte where login = "'+login+'"', function (error, results, fields) {
-            if (error) throw error;
-            res.send(results);
-            
-        })
-        connection.end();
-    })
-})
-
-
-app.get('/CompteEnseignant/:idEnseignant', (req, res) => {
-    const id = req.params.idEnseignant;
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-        connection.query('SELECT t_enseignant.id as id, nom, prenom, mdp, login, mail from t_enseignant inner join t_compte on t_compte.id = t_enseignant.id where t_enseignant.id = '+id, function (error, results, fields) {
-            if (error) throw error;
-            res.send(results[0]);
-            
-        })
-        connection.end();
-    })
-})
-
-app.get('/CompteAdmin', (req, res) => {
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-        connection.query('SELECT * from t_administrateur', function (error, results, fields) {
-            if (error) throw error;
-            res.send(results);
-            
-        })
-        connection.end();
-    })
-})
-
-
-app.put('/CompteEnseignant/:id', async (req, res) => {
-    const id = req.params.id;
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-        connection.query('UPDATE t_compte inner join t_enseignant on t_compte.id = t_enseignant.id set login = "'+ req.body.login +'", mdp = "'+ req.body.mdp +'", mail = "'+ req.body.mail +'", nom = "'+ req.body.nom +'", prenom = "'+ req.body.prenom +'" where t_compte.id = ' + id, function (error, results, fields) {
-            if (error) throw error;
-            res.send("Modification effecté");
-            
-        })
-        connection.end();
-    })
-})
-
-
-app.delete('/CompteEnseignant/:id', (req, res) => {
-    const id = req.params.id;
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-        connection.query('DELETE from t_compte where id = ' + id, function (error, results, fields) {
-            if (error) throw error;
-        })
-        connection.query('DELETE from t_enseignant where id = ' + id, function (error, results, fields) {
-            if (error) throw error;
-            res.send("Compte supprimé");
-        })
-        connection.end();
-    })
-})
-
-
-app.post('/CompteUtilisateurAjout', async (req, res) => {
-    const mdp = req.body.mdp;
-    const login = req.body.login;
-    const mail = req.body.mail;
-    const isadmin = req.body.isadmin;
-
-    if (!mdp || !login || !mail || !isadmin) {
-        res.send("Il manque des arguments");
-    }
-
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-
-        connection.query('INSERT into t_compte values ( null, "'+ login +'", "'+ mdp +'", "'+ mail +'", '+ isadmin +')', function (error, results, fields) {
-            if (error) throw error;
-            if( isadmin != 1 ){
-                res.send("Ajout effecté");
-            }
-        })
-
-        if (isadmin == 1){
-            fetch('http://localhost:7251/CompteUtilisateurLogin/' + login)
-            .then(response => response.json())
-            .then(response => {
-                connection.query('INSERT into t_administrateur values ( '+ response.id +')', function (error, results, fields) {
-                    if (error) throw error;
-                    res.send("Ajout effecté");
-                })
-            })
-        }
-
-        connection.end();
-    })
-
-});
-*/
 
 
 app.listen(7251, () => {
