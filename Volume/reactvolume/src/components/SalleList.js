@@ -1,11 +1,6 @@
 import { useEffect, useState} from 'react';
 import { getSalle } from '../services/salle';
-<<<<<<< HEAD
 import './SalleList.css';
-=======
-import { getMobilier } from '../services/mobilier';
-import './ListeSalle.css';
->>>>>>> 89f451a31fafce2f0a45abb8fa8c203d422ece04
 
 export const SalleList = (props) => {
   // Créer une donnée réactive
