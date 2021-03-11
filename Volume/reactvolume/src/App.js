@@ -13,7 +13,7 @@ function App() {
         <h1 className="titre"> Calculateur de volume </h1>
       </div>
     
-      <div className="row">
+      <div>
         <SalleList />
       </div>
       <MobilierList />
