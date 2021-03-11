@@ -1,5 +1,5 @@
 import React from 'react'
-import TemplateListe from './Template_Liste.js'
+import TemplateListe from './Template_Logement.js'
 
 class Affichette extends React.Component {
 
@@ -24,12 +24,12 @@ class Affichette extends React.Component {
                 var test = this.state.tab;
                 var tableauID = [];
                 for(var i=0;i<response.length;i++){
-                    test[i] = { id:  response[i].Piece_id, nom : response[i].Piece_nom, couleur :  response[i].Piece_couleur, taille : response[i].Piece_taille, idLogement : response[i].Logement_id};
+                    test[i] = { id:  response[i].Logement_id, adresse : response[i].Logement_adresse, etage :  response[i].Logement_etage, ascenseur : response[i].Logement_ascenseur, type : response[i].Type_Logement_id};
 
                 }
                 console.log(this.state.tab.length);
                 var listItems = this.state.tab.map(e => (
-                    <TemplateListe id={e.id} nom={e.nom} couleur={e.couleur} taille={e.taille} idLogement={e.idLogement}/>
+                    <TemplateListe id={e.id} adresse={e.adresse} etage={e.etage} ascenseur={e.ascenseur} type={e.type}/>
         
                 ));
                 this.setState({text:listItems})
@@ -44,10 +44,10 @@ class Affichette extends React.Component {
         <thead>
         <tr> 
         	<th>ID</th> 
-        	<th>Nom</th> 
-        	<th>Couleur</th> 
-        	<th>Taille</th> 
-        	<th>Logement</th> 
+        	<th>Adresse</th> 
+        	<th>Etage</th> 
+        	<th>Ascenseur</th> 
+        	<th>Type</th> 
         </tr>
         </thead>
         {this.state.text}

@@ -26,7 +26,7 @@ class CreationCarton extends React.Component {
         largeurError : '',
         longueurError : '',
         origineError : '',
-        inputFragile :'',
+        inputFragile : '',
         inputDestination :'',
         selectCouleur: '',
         inputFile : ''
@@ -120,7 +120,9 @@ class CreationCarton extends React.Component {
         const isValid = this.validate();
         if (isValid) {
           console.log(this.state);
-          console.log("Couleur " + this.state.selectCouleur);
+          var elementCheck = document.getElementById('inputFragile').checked;
+
+          console.log(elementCheck + " Couleur " + this.state.inputFragile.checked);
           //this.setState(initialState);
         }
         //this.props.history.push('/ListeSalles');
@@ -136,7 +138,7 @@ class CreationCarton extends React.Component {
             <div>
               <form>
                 <div class="form-group">
-                  <input type="file" className="form-control-file" id="inputFile"/>
+                  <input type="file" className="form-control-file" id="inputFile" onChange={this.handleChange} />
                 </div>
               </form>
             </div>
@@ -160,7 +162,7 @@ class CreationCarton extends React.Component {
             <br/>
             <div>
               <div>
-                <input type="checkbox" id="inputFragile" name="Fragile" />
+                <input type="checkbox" id="inputFragile" name="Fragile" onChange={this.handleChange} />
                 <label for="Fragile">Fragile</label>
               </div>
             </div>
