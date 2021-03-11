@@ -1,6 +1,7 @@
 import './App.css';
 import { MobilierList } from './components/MobilierList';
 import { SalleList } from './components/SalleList';
+import { CompteurVolume } from './components/CompteurVolume';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <SalleList />
       </div>
       <MobilierList />
+      <CompteurVolume />
     </div>
   );
 }

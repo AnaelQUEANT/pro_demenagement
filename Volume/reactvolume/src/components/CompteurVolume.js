@@ -1,8 +1,7 @@
-import { useEffect, useState} from 'react';
+//import { useEffect, useState} from 'react';
 import './CompteurVolume.css';
 
 export const CompteurVolume = (props) =>{
-    const [volume, setVolume] = useState([]);
     return (
         
         <div>

@@ -10,20 +10,20 @@ app.use(cors());
 app.use(express.json());
 
 // Middleware 
-var connection;
 
 function setupConnection(){
-    connection = mysql.createConnection({
+    let connection = mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
         password: process.env.DB_PWD,
         database: process.env.DB_NAME
     });
+    return connection;
 }
 
 app.get('/lesPieces/:idSalle', (req, res) => {
     const id = req.params.idSalle;
-    setupConnection();
+    let connection = setupConnection();
     connection.connect((err) => {
         if(err) throw err;
 
@@ -42,8 +42,8 @@ app.get('/lesPieces/:idSalle', (req, res) => {
 
 app.get('/lesCartons/:idSalle', (req, res) => {
     const id = req.params.idSalle;
-    setupConnection();
-    connection.connect((err) => {
+        let connection = setupConnection();
+        connection.connect((err) => {
         if(err) throw err;
         let requete = 'SELECT * from Carton ';
         requete += 'left join Piece using (Piece_id) ';
@@ -58,7 +58,7 @@ app.get('/lesCartons/:idSalle', (req, res) => {
 
 app.get('/lesObjets/', (req, res) => {
     const id = req.params.idSalle;
-    setupConnection();
+    let connection = setupConnection();
     connection.connect((err) => {
         if(err) throw err;
         let requete = 'SELECT * from Equipement_Carton ';
@@ -72,7 +72,7 @@ app.get('/lesObjets/', (req, res) => {
 
 app.get('/infoCarton/:id', (req, res) => {
     const id = req.params.id;
-    setupConnection();
+    let connection = setupConnection();
     connection.connect((err) => {
         if(err) throw err;
         let requete = 'SELECT * from Carton ';
@@ -87,7 +87,7 @@ app.get('/infoCarton/:id', (req, res) => {
 
 app.get('/objetCarton/:id', (req, res) => {
     const id = req.params.id;
-    setupConnection();
+    let connection = setupConnection();
     connection.connect((err) => {
         if(err) throw err;
         let requete = 'SELECT * from Carton ';
