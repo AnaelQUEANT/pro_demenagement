@@ -13,7 +13,7 @@ function App() {
         <Route exact path='/Recapitulatif' component={Recapitulatif} />
       </div>
       <Link to="CalculateurVolume" > CalculateurVolume </Link>
-      <Link to="Recapitulatif" > CalculateurVolume </Link>
+      {/* <Link to="Recapitulatif" > CalculateurVolume </Link> */}
     </Router>
     
     
