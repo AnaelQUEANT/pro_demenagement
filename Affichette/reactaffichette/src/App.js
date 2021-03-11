@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom'
 
 import Affichette from './Affichette.js'
+import Logement from './Logement.js'
+import AffichetteLogement from './AffichetteLogement.js'
 
 class App extends React.Component {
 
@@ -21,6 +23,8 @@ class App extends React.Component {
                     <div>
                          <Switch>
                             <Route path="/Affichette" component={Affichette} />
+                            <Route path="/Logement" component={Logement}/>
+                            <Route path="/AffichetteLogement" component={AffichetteLogement}/>
                             <Route path="/" component={Affichette} />
                        </Switch>
                     </div>

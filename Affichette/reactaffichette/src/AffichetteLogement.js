@@ -13,9 +13,14 @@ class Affichette extends React.Component {
       };
   }
   
+    getArgument(elem){
+      var param = elem.split('=');
+      return param[1];
+    }
+  
   componentDidMount() {
 
-        let monAPI = "http://localhost:7251/affichette";
+        let monAPI = "http://localhost:7251/affichette/" + this.getArgument(this.state.get);
 
         fetch(monAPI)
             .then(response => response.json())
