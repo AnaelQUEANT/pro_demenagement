@@ -47,12 +47,9 @@ class AffichetteLogement extends React.Component {
       <div>
         <table>
         <thead>
-        <tr> 
-        	<th>ID</th> 
+        <tr>
         	<th>Nom</th> 
         	<th>Couleur</th> 
-        	<th>Taille</th> 
-        	<th>Logement</th> 
         </tr>
         </thead>
         {this.state.text}

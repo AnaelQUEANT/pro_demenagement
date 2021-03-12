@@ -31,7 +31,7 @@ app.get('/mobilier', (req, res) => {
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");
-        connection.query('SELECT * from Mobilier', function (error, results, fields) {
+        connection.query('SELECT * from Type_Mobilier', function (error, results, fields) {
             if (error) throw error;
             res.send(results);
             
