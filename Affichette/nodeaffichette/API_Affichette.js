@@ -65,6 +65,36 @@ app.get('/logement', (req, res) => {
     })
 })
 
+app.get('/piece', (req, res) => {
+    setupConnection();
+    connection.connect((err) => {
+        if (err) throw err;
+        console.log("Connecté !");
+        connection.query('SELECT * from Piece', function (error, results, fields) {
+            if (error) throw error;
+            res.send(results);
+            
+        })
+        connection.end();
+    })
+})
+
+app.get('/lesCartons/:idSalle', (req, res) => {
+    const id = req.params.idSalle;
+        setupConnection();
+        connection.connect((err) => {
+        if(err) throw err;
+        let requete = 'SELECT * from Carton ';
+        requete += 'left join Piece using (Piece_id) ';
+        requete += 'where Carton.Piece_id = ' + id;
+        connection.query(requete, function (error, results, fields){
+            if(error) throw error;
+            res.send(results);
+        })
+        connection.end();
+    })
+})
+
 
 
 

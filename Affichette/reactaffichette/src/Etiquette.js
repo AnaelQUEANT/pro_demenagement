@@ -1,7 +1,7 @@
 import React from 'react'
-import TemplateListe from './Template_Liste.js'
+import TemplateListe from './Template_Etiquette.js'
 
-class AffichetteLogement extends React.Component {
+class Affichette extends React.Component {
 
   constructor(props) {
     super(props);
@@ -12,7 +12,8 @@ class AffichetteLogement extends React.Component {
         get : props.location.search
       };
   }
-  
+
+
     getArgument(elem){
       var param = elem.split('=');
       return param[1];
@@ -20,7 +21,7 @@ class AffichetteLogement extends React.Component {
   
   componentDidMount() {
 
-        let monAPI = "http://localhost:7251/affichette/" + this.getArgument(this.state.get);
+        let monAPI = "http://localhost:7251/lesCartons/"+ this.getArgument(this.state.get);;
 
         fetch(monAPI)
             .then(response => response.json())
@@ -29,12 +30,12 @@ class AffichetteLogement extends React.Component {
                 var test = this.state.tab;
                 var tableauID = [];
                 for(var i=0;i<response.length;i++){
-                    test[i] = { id:  response[i].Piece_id, nom : response[i].Piece_nom, couleur :  response[i].Piece_couleur, taille : response[i].Piece_taille, idLogement : response[i].Logement_id};
+                    test[i] = { origine:  response[i].Carton_origine, description : response[i].Carton_description};
 
                 }
                 console.log(this.state.tab.length);
                 var listItems = this.state.tab.map(e => (
-                    <TemplateListe id={e.id} nom={e.nom} couleur={e.couleur} taille={e.taille} idLogement={e.idLogement}/>
+                    <TemplateListe origine={e.origine} description={e.description} />
         
                 ));
                 this.setState({text:listItems})
@@ -48,11 +49,8 @@ class AffichetteLogement extends React.Component {
         <table>
         <thead>
         <tr> 
-        	<th>ID</th> 
-        	<th>Nom</th> 
-        	<th>Couleur</th> 
-        	<th>Taille</th> 
-        	<th>Logement</th> 
+        	<th>Origine</th> 
+        	<th>Description</th> 
         </tr>
         </thead>
         {this.state.text}
@@ -62,4 +60,4 @@ class AffichetteLogement extends React.Component {
   }
 
 }
-export default AffichetteLogement
+export default Affichette

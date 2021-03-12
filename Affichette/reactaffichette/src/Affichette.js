@@ -1,5 +1,5 @@
 import React from 'react'
-import TemplateListe from './Template_Liste.js'
+import TemplateListe from './Template_Piece.js'
 
 class Affichette extends React.Component {
 
