@@ -30,7 +30,8 @@ class CreationCarton extends React.Component {
         inputDestination :'',
         selectCouleur: '',
         inputFile : '',
-        idDestination: ''
+        idDestination: '',
+        valID : ''
 
 
       };
@@ -128,6 +129,7 @@ class CreationCarton extends React.Component {
                 return cell.id;       
             }
           }.bind(this));
+
          
           try{
             let monAPI = "http://localhost:16500/ajoutCarton";
@@ -154,9 +156,79 @@ class CreationCarton extends React.Component {
           }catch(e){
             console.log(e);
           }
-          console.log("2 " + this.state.origine + this.state.selectCouleur + this.state.inputLargeur + this.state.inputLongueur + this.state.inputHauteur + elementCheck + this.state.idDestination);
+         
+          try{
+            fetch("http://localhost:16500/getIDCarton")
+              .then(response => response.json())
+              .then(response => {
+                  var test3 = this.state.valID;
+                  for(var i=0;i<response.length;i++){
+                    this.state.valID  = response[i].Carton_id;
+                  }
+                 console.log("YOOO : " + this.state.valID );
+                  
+                
 
-          console.log(elementCheck + " Couleur " + this.state.inputFragile.checked);
+
+              });
+              this.state.tab.map(function(cell) {
+                var idObjet = "id" + cell.id;
+                var elementTrue= document.getElementById(idObjet).checked;
+                console.log("ICCCCCCCCCI : " + cell.id + " ettt " + this.state.valID);
+                if(elementTrue){
+                  console.log('KOH LANTA ' + this.state.valID );
+                 
+                    let monAPI = "http://localhost:16500/ajoutEquipementCarton";
+                    fetch(monAPI, {
+                      method: 'POST',
+                      headers: { 'content-type': 'application/json' },
+                      body: JSON.stringify({
+                          "idCarton": this.state.valID,
+                          "idObjet": cell.id
+                      })
+                    })
+                       
+                }
+              }.bind(this));
+          }catch(e){
+            console.log(e);
+          }
+
+
+          
+      
+            
+          
+          
+
+          
+
+
+
+          /*var row = this.state.tab.map(function(cell) {
+            var value = "id" + cell.id;
+            var elemID = document.getElementByID(value).checked;
+            if(elemID){
+
+              try{
+                let monAPI = "http://localhost:16500/ajoutObjetCarton";
+                
+                fetch(monAPI, {
+                  method: 'POST',
+                  
+                  headers: { 'content-type': 'application/json' },
+                  body: JSON.stringify({
+                      
+                  })
+                })
+              }catch(e){
+                console.log(e);
+              }
+                this.state.idDestination = cell.id;
+                return cell.id;       
+            }
+          }.bind(this));*/
+
           //this.setState(initialState);
           this.props.history.push('/ListeSalles');
         }

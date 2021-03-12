@@ -85,6 +85,20 @@ app.get('/infoCarton/:id', (req, res) => {
     })
 })
 
+app.get('/getIDCarton/', (req, res) => {
+    const id = req.params.id;
+    let connection = setupConnection();
+    connection.connect((err) => {
+        if(err) throw err;
+        let requete = 'select Carton_id from Carton order by Carton_id desc LIMIT 1';
+        connection.query(requete, function (error, results, fields){
+            if(error) throw error;
+            res.send(results);
+        })
+        connection.end();
+    })
+})
+
 app.get('/objetCarton/:id', (req, res) => {
     const id = req.params.id;
     let connection = setupConnection();
@@ -101,6 +115,26 @@ app.get('/objetCarton/:id', (req, res) => {
         connection.end();
     })
 })
+
+app.post('/ajoutEquipementCarton', async (req, res) =>{
+    const idCarton = req.body.idCarton;
+    const idObjet = req.body.idObjet;
+    
+
+    if (!idCarton || !idObjet) {
+        res.send("Il manque des arguments");
+    }
+
+    let connection = setupConnection();
+    connection.query('INSERT into Carton_has_Equipement values (' + idCarton + ', ' + idObjet + ')', function (error, results, fields) {
+            if (error) throw error;
+            res.send("Ajout effecté");
+    })
+    connection.end();
+})
+
+
+
 
 app.post('/ajoutCarton', async (req, res) =>{
     const origine = req.body.origine;
