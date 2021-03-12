@@ -118,6 +118,8 @@ class CreationCarton extends React.Component {
       };
 
       handleSubmit = event => {
+        
+
         event.preventDefault();
         const isValid = this.validate();
         if (isValid) {
@@ -152,12 +154,8 @@ class CreationCarton extends React.Component {
                   "fragile": elementCheck,
                   "piece": this.state.idDestination
               })
+              
             })
-          }catch(e){
-            console.log(e);
-          }
-         
-          try{
             fetch("http://localhost:16500/getIDCarton")
               .then(response => response.json())
               .then(response => {
@@ -166,11 +164,16 @@ class CreationCarton extends React.Component {
                     this.state.valID  = response[i].Carton_id;
                   }
                  console.log("YOOO : " + this.state.valID );
-                  
-                
-
-
               });
+            
+          }catch(e){
+            console.log(e);
+          }
+         
+       
+          
+
+
               this.state.tab.map(function(cell) {
                 var idObjet = "id" + cell.id;
                 var elementTrue= document.getElementById(idObjet).checked;
@@ -190,9 +193,7 @@ class CreationCarton extends React.Component {
                        
                 }
               }.bind(this));
-          }catch(e){
-            console.log(e);
-          }
+         
 
 
           
