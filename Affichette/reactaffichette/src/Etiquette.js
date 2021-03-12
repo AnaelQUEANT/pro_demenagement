@@ -30,12 +30,12 @@ class Affichette extends React.Component {
                 var test = this.state.tab;
                 var tableauID = [];
                 for(var i=0;i<response.length;i++){
-                    test[i] = { origine:  response[i].Carton_origine, description : response[i].Carton_description, destination : response[i].Piece_nom};
+                    test[i] = { origine:  response[i].Carton_origine, description : response[i].Carton_description};
 
                 }
                 console.log(this.state.tab.length);
                 var listItems = this.state.tab.map(e => (
-                    <TemplateListe origine={e.origine} description={e.description} destination={e.destination} />
+                    <TemplateListe origine={e.origine} description={e.description} />
         
                 ));
                 this.setState({text:listItems})

@@ -1,0 +1,34 @@
+#bouton{
+  display: flex;
+  margin: 0 auto;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 15px;
+  color:white;
+  background-color:#dc3545;
+}
+
+.affichette{
+	background-color: #35646a; 
+	border-radius: 15px; 
+	color: white;
+	text-align: center;
+	height: 200px;
+	margin: 20px;
+	display:flex;
+	font-size: 45px;
+}
+
+.affichetteContainer{
+    margin: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid 1px grey;
+}
+
+.titre{
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+}

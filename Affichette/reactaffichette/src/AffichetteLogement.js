@@ -45,15 +45,10 @@ class AffichetteLogement extends React.Component {
   render() {
     return (
       <div>
-        <table>
-        <thead>
-        <tr>
-        	<th>Nom</th> 
-        	<th>Couleur</th> 
-        </tr>
-        </thead>
-        {this.state.text}
-        </table>
+        <h1 class="titre">Affichettes à Imprimer</h1>
+        <div class="affichetteContainer">
+          {this.state.text}
+        </div>
       </div>
     )
   }
