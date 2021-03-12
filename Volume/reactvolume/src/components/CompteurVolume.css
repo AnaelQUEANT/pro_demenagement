@@ -15,9 +15,9 @@
     display: inline-flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 
 }
 .surfaceTotal{
@@ -30,9 +30,9 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
 .flex-item:nth-child(1) {

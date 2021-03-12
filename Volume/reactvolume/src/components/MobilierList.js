@@ -56,7 +56,7 @@ export const MobilierList = (props) => {
           
         </div>
         <span>{e.Mobilier_nom}</span>
-        <span>Dim : .. x .. x ..</span>
+        <span>Dim : {e.Mobilier_longueur} x {e.Mobilier_largeur} x {e.Mobilier_hauteur}</span>
       </div>
       
     )
