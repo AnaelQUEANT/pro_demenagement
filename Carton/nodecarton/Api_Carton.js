@@ -102,7 +102,7 @@ app.get('/objetCarton/:id', (req, res) => {
     })
 })
 
-app.push('/ajoutCarton', (req, res) =>{
+app.post('/ajoutCarton', (req, res) =>{
     const origine = req.body.origine;
     const couleur = req.body.couleur;
     const largeur = req.body.largeur;
@@ -119,9 +119,9 @@ app.push('/ajoutCarton', (req, res) =>{
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");
-        connection.query('INSERT into Cartons values ( null, null, null, null, '+ origine +', '+ couleur +', '+ largeur +', '+ hauteur +', '+ longueur +', '+ fragile +', '+ piece +', null)', function (error, results, fields) {
+        connection.query('INSERT into Carton values ( null, null, null, null, '+ origine +', '+ couleur +', '+ largeur +', '+ hauteur +', '+ longueur +', '+ fragile +', '+ piece +', null)', function (error, results, fields) {
             if (error) throw error;
-            res.send("Ajout effecté");
+            res.send("Ajout effectué");
         })
     })
     connection.end();
