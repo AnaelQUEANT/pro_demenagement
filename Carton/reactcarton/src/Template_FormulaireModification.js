@@ -2,7 +2,7 @@ import React from 'react'
 
 class Template_FormulaireModification extends React.Component {
     render() {
-      return ( 
+      return (
         <form>
             <br/>
             <div>
@@ -27,7 +27,7 @@ class Template_FormulaireModification extends React.Component {
             </div>
             <br/>
             <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput" value={this.props.destination} placeholder="Destination"></input>
+              <input type="text" class="form-control" id="formGroupExampleInput" value={this.props.destination} placeholder="Destination"></input>
             </div>
             <br/>
             <div class="form-group">
@@ -35,11 +35,20 @@ class Template_FormulaireModification extends React.Component {
             </div>
             <br/>
             <div>
-                <div class="row">
-                    <input type="text" class="form-control col-sm" id="formGroupExampleInput" value={this.props.largeur} placeholder="Largeur"></input>
-                    <input type="text" class="form-control col-sm" id="formGroupExampleInput" value={this.props.longueur} placeholder="Longueur"></input>
-                    <input type="text" class="form-control col-sm" id="formGroupExampleInput" value={this.props.hauteur} placeholder="Hauteur"></input>
-                </div>
+              <div>
+                <label>Largeur</label>
+                <input type="number"  class="form-control" id="formGroupExampleInput" placeholder={this.props.largeur}></input>
+              </div>
+              <br/>
+              <div>
+                <label>Longueur</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder={this.props.longueur}></input>
+              </div>
+              <br/>
+              <div>
+                <label>Hauteur</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder={this.props.hauteur} ></input>
+              </div>
             </div>
             <br/>
         </form>

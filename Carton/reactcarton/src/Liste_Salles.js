@@ -1,6 +1,7 @@
 import React from 'react'
 import TemplateGrid from './Template_Grid.js'
 import {Link} from 'react-router-dom'
+import cartonAjout from './Image/AjoutCarton.PNG';
 
 class ListeSalles extends React.Component {
 
@@ -40,19 +41,20 @@ class ListeSalles extends React.Component {
 
     render() {
       return (
-        <div class="grid-container row">
-          <div class = "col-12">
-            <div className="list-salle btn-group col-4" >
-              <Link class="le-link" to="CreationCarton">
+          <div className="row">
+            <div className="col-4 flex-column btn_carton_virtuel" >
+              <Link to="CreationCarton">
+                <img className="image_carton_virtuel" src={cartonAjout} width="100%" height="100%" alt="Lien d'ajout de carton (Image absente)"></img>
+                {/*
                 <button type="button"  className="btn btn-outline-danger">
                   Ajouter un carton
                 </button>
+                */}
               </Link>
             </div>
 
             {this.state.text}
           </div>
-        </div>
       )
     }
   }

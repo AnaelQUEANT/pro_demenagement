@@ -1,18 +1,14 @@
-.list-salle{
+.btn_carton_virtuel{
+    padding-top: 1%;
     height: 100%;
 }
 
-.btn-outline-danger {
+.texte_carton_virtuel{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: red;
+    font-variant-caps: all-small-caps;
+}
+
+.image_carton_virtuel{
     border-radius: 5px;
-}
-
-.le-link {
-    height: 100%;
-    width: 100%;
-    margin: 0 0 0 5%;
-}
-
-.btn{
-    width: 100%;
-    height: 100%;
 }
