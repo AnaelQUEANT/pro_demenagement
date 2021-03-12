@@ -21,6 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     /* border: 1px solid blue; */
 }
 .btn-group-plus-moins {
@@ -35,6 +36,12 @@
     height: 16px;
     background-color: white;
     border: 0px;
+}
+.btn-moins {
+    margin-right: 15px;
+}
+.btn-plus {
+    margin-left: 15px;
 }
 .bi-dash, .bi-plus {
     margin: -25px 0px 0px -8px;
