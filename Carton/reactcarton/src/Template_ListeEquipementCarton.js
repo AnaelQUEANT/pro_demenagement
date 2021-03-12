@@ -1,12 +1,17 @@
 import React from 'react'
+import './StyleCheckBox.css';
 
 class TemplateListeObjet extends React.Component {
     render() {
       return (
-        <div>
-            <input type="checkbox" id={this.props.id} name={this.props.id}/>
-            {this.props.nom}
+
+        <div >
+
+      <input type="checkbox" class="demo5" id={"id"+this.props.id}/>
+      <label>{this.props.nom}</label>
+    
         </div>
+
       );
     }
   }
