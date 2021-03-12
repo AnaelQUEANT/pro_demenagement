@@ -1,7 +1,4 @@
-// import './App.css';
-import { MobilierList } from './components/MobilierList';
-import { SalleList } from './components/SalleList';
-import { CompteurVolume } from './components/CompteurVolume';
+import { RecapPiece } from './components/RecapPiece';
 import {Link} from 'react-router-dom'
 
 
@@ -15,13 +12,11 @@ function Recapitulatif() {
           <path fillRule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
         </svg>
         </Link>
-        <h1 className="titre"> Récapitulatif </h1>
+        <h1> Récapitulatif </h1>
       </div>
-    
-      <SalleList />
-      <MobilierList />
-      <div className="compteur">
-        <CompteurVolume />
+
+      <div className="recap">
+      <RecapPiece />
       </div>
       
     </div>
