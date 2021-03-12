@@ -14,6 +14,9 @@ class TemplateEtiquette extends React.Component {
                 <td className="col-3">
                     <p>{this.props.description}</p>
                 </td>
+                <td className="col-3">
+                    <p>{this.props.destination}</p>
+                </td>
 
             </tr>
 
