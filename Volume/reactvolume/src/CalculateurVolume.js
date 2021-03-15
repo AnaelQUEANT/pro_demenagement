@@ -1,7 +1,7 @@
 import './CalculateurVolume.css';
 import { MobilierList } from './components/MobilierList';
 import { SalleList } from './components/SalleList';
-import { CompteurVolume } from './components/CompteurVolume';
+// import { CompteurVolume } from './components/CompteurVolume';
 import {Link} from 'react-router-dom'
 
 
@@ -20,9 +20,9 @@ function CalculateurVolume() {
     
       <SalleList />
       <MobilierList />
-      <div className="compteur">
+      {/* <div className="compteur">
         <CompteurVolume />
-      </div>
+      </div> */}
       
     </div>
   );

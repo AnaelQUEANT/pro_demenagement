@@ -16,7 +16,7 @@ function Recapitulatif() {
       </div>
 
       <div className="recap">
-      <RecapPiece />
+        <RecapPiece />
       </div>
       
     </div>

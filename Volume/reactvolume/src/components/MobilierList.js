@@ -1,10 +1,14 @@
 import { useEffect, useState} from 'react';
 import { getMobilier } from '../services/mobilier';
+import { CompteurVolume } from '../components/CompteurVolume';
 import './MobilierList.css';
 
 export const MobilierList = (props) => {
   // Créer une donnée réactive
   const [mobiliers, setMobiliers] = useState([]);
+  const [compteurMobilier, setCompteurMobilier] = useState([]);
+  const [nbElement, setNbElement] = useState([]);
+  const [vol, setVolume] = useState([]);
 
 
   useEffect(() => {
@@ -12,6 +16,12 @@ export const MobilierList = (props) => {
     const getDatas = async () => {
       const mobi = await getMobilier();
       setMobiliers(mobi);
+
+      let array = new Array(50).fill(0);
+      setCompteurMobilier(array);
+
+      setNbElement(0);
+      setVolume(0);
     }
     getDatas()
     // Execute une action au ComponentDidUnMount
@@ -20,12 +30,37 @@ export const MobilierList = (props) => {
 
   // Execute à chaque changement de valeur de '[]'
   useEffect(() => {
+    
+  }, [])
 
-  }, [mobiliers])
+  const handleClickMoins = ((mobi) => {
+    if(compteurMobilier[mobi.Mobilier_id] > 0) {
+      const newCompteur = [...compteurMobilier];
+      newCompteur[mobi.Mobilier_id] = newCompteur[mobi.Mobilier_id] - 1;
+      setCompteurMobilier(newCompteur)
 
-    const handleClickMoins = (() =>{
-      console.log("clickMoins handled")
-    })
+      if(nbElement > 0) {
+        let nb = nbElement;
+        nb--;
+        setNbElement(nb)
+      }
+    }
+  })
+
+  const handleClickPlus = ((mobi) => {
+    const newCompteur = [...compteurMobilier];
+      newCompteur[mobi.Mobilier_id] = newCompteur[mobi.Mobilier_id] + 1;
+      setCompteurMobilier(newCompteur)
+
+      let nb = nbElement;
+      nb++;
+      setNbElement(nb)
+
+      let volume = vol;
+      volume += mobi.Mobilier_largeur * mobi.Mobilier_longueur * mobi.Mobilier_hauteur;
+      volume = Math.round (volume * 100) / 100;
+      setVolume(volume)
+  })
 
 
   const MobiList = mobiliers.map((e, i) => {
@@ -38,15 +73,15 @@ export const MobilierList = (props) => {
           
 
           <div className="btn-group-plus-moins" role="group">
-            <button type="button" className="btn btn-outline-secondary btn-moins" onClick={() =>handleClickMoins()}>
+            <button type="button" className="btn btn-outline-secondary btn-moins" onClick={() =>handleClickMoins(e)}>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-dash" viewBox="0 0 16 16">
                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
               </svg>
             </button>
             
-            <span className="nombre">0</span>
+            <span className="nombre">{compteurMobilier[e.Mobilier_id]}</span>
             
-            <button type="button" className="btn btn-outline-secondary btn-plus">
+            <button type="button" className="btn btn-outline-secondary btn-plus" onClick={() => handleClickPlus(e)}>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">
                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
               </svg>
@@ -63,7 +98,11 @@ export const MobilierList = (props) => {
   })
   
   return (
+    <div>
     <div className="list-mobilier">{MobiList}</div>
-      
+      <div className="compteur">
+        <CompteurVolume nbElem={nbElement} volume={vol} />
+      </div>
+    </div>
   );
 }
