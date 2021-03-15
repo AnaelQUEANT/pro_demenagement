@@ -30,7 +30,7 @@ export const SalleList = (props) => {
     return (
       <div key={i}>
         <input type="button" className="btn-check" id={i} autoComplete="off"/>
-        <label className="btn btn-outline-danger" htmlFor={i}>{e.Nom_Piece}</label>
+        <label className="btn btn-outline-danger" htmlFor={i}>{e.Piece_nom}</label>
       </div>
 
     )

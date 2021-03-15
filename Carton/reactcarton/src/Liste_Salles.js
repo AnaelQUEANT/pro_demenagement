@@ -1,59 +1,68 @@
 import React from 'react'
 import TemplateGrid from './Template_Grid.js'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import cartonAjout from './Image/AjoutCarton.PNG';
 
 class ListeSalles extends React.Component {
 
-    constructor(props) {
-      super(props);
-      this.state = {
-        value: '',
-        text : '',
-        tab : []
-      };
-    }
-    
-    componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      text: '',
+      tab: []
+    };
+  }
 
-        let monAPI = "http://localhost:16500/LesPieces/" + "1";
+  componentDidMount() {
 
-        console.log("api : " + monAPI);
-        fetch(monAPI)
-            .then(response => response.json())
-            .then(response => {
-                this.state.tab = [];
-                var test = this.state.tab;
-                var tableauID = [];
-                for(var i=0;i<response.length;i++){
-                    test[i] = { nom: response[i].Piece_nom, id : response[i].Piece_id ,nbCarton : response[i].nbCarton};
-                    console.log("id : " + response[i].Piece_id);
-                }
-                console.log(test);
-                var listItems = this.state.tab.map(e => (
-                    <TemplateGrid mess={e.nom} id={e.id} nbCarton={e.nbCarton} />
-        
-                ));
-                this.setState({text:listItems})
-                
-            });
+    let monAPI = "http://localhost:16500/LesPieces/" + "1";
+
+    console.log("api : " + monAPI);
+    fetch(monAPI)
+      .then(response => response.json())
+      .then(response => {
+        this.state.tab = [];
+        var test = this.state.tab;
+        var tableauID = [];
+        for (var i = 0; i < response.length; i++) {
+          test[i] = { nom: response[i].Piece_nom, id: response[i].Piece_id, nbCarton: response[i].nbCarton };
+          console.log("id : " + response[i].Piece_id);
         }
+        console.log(test);
+        var listItems = this.state.tab.map(e => (
+          <TemplateGrid mess={e.nom} id={e.id} nbCarton={e.nbCarton} />
 
-    render() {
-      return (
-        <div class="grid-container row">
-          <div class = "col-12">
-            <div className="list-salle btn-group col-4" >
-              <Link class="le-link" to="CreationCarton">
+        ));
+        this.setState({ text: listItems })
+
+      });
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="row laDivDesSalles">
+          <div className="col-4 flex-column btn_carton_virtuel" >
+            <Link to="CreationCarton">
+              <img className="image_carton_virtuel" src={cartonAjout} width="100%" height="100%" alt="Lien d'ajout de carton (Image absente)"></img>
+              {/*
                 <button type="button"  className="btn btn-outline-danger">
                   Ajouter un carton
                 </button>
-              </Link>
-            </div>
-
-            {this.state.text}
+                */}
+            </Link>
           </div>
+
+          {this.state.text}
         </div>
-      )
-    }
+        <div className="laDivAffichette">
+          <button type="button" className="btn btn-outline-danger bouttonAffichette">
+            Editer des affichettes
+          </button>
+        </div>
+      </div>
+    )
   }
-  export default ListeSalles
+}
+export default ListeSalles

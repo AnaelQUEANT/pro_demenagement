@@ -13,8 +13,8 @@ export const CompteurVolume = (props) =>{
                 <div className="child">Élements</div>
             </div>
             <div className="surfaceTotal">
-                <div className="parent">0m3</div>
-                <div className="child">Surface</div>
+                <div className="parent">0m³</div>
+                <div className="child">Volume</div>
             </div>
             <Link to={{ pathname: "Recapitulatif", search: "?m=9"}} className="boutons">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-truck" viewBox="0 0 16 16">

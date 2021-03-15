@@ -29,7 +29,9 @@ class CreationCarton extends React.Component {
         inputFragile : '',
         inputDestination :'',
         selectCouleur: '',
-        inputFile : ''
+        inputFile : '',
+        idDestination: '',
+        valID : ''
 
 
       };
@@ -116,16 +118,122 @@ class CreationCarton extends React.Component {
       };
 
       handleSubmit = event => {
+        
+
         event.preventDefault();
         const isValid = this.validate();
         if (isValid) {
           console.log(this.state);
           var elementCheck = document.getElementById('inputFragile').checked;
+          var row = this.state.tab2.map(function(cell) {
+            if(cell.nom ==  this.state.inputDestination){
+                this.state.idDestination = cell.id;
+                return cell.id;       
+            }
+          }.bind(this));
 
-          console.log(elementCheck + " Couleur " + this.state.inputFragile.checked);
+         
+          try{
+            let monAPI = "http://localhost:16500/ajoutCarton";
+            console.log(this.state.origine + this.state.selectCouleur + this.state.inputLargeur + this.state.inputLongueur + this.state.inputHauteur + elementCheck + this.state.idDestination);
+            if(elementCheck){
+              elementCheck = 1;
+            }else{
+              elementCheck = 0;
+            }
+            fetch(monAPI, {
+              method: 'POST',
+              
+              headers: { 'content-type': 'application/json' },
+              body: JSON.stringify({
+                  "origine": this.state.origine,
+                  "couleur": this.state.selectCouleur,
+                  "largeur": this.state.inputLargeur,
+                  "longueur": this.state.inputLongueur,
+                  "hauteur": this.state.inputHauteur,
+                  "fragile": elementCheck,
+                  "piece": this.state.idDestination
+              })
+              
+            })
+            fetch("http://localhost:16500/getIDCarton")
+              .then(response => response.json())
+              .then(response => {
+                  var test3 = this.state.valID;
+                  for(var i=0;i<response.length;i++){
+                    this.state.valID  = response[i].Carton_id;
+                  }
+                 console.log("YOOO : " + this.state.valID );
+              });
+            
+          }catch(e){
+            console.log(e);
+          }
+         
+       
+          
+
+
+              this.state.tab.map(function(cell) {
+                var idObjet = "id" + cell.id;
+                var elementTrue= document.getElementById(idObjet).checked;
+                console.log("ICCCCCCCCCI : " + cell.id + " ettt " + this.state.valID);
+                if(elementTrue){
+                  console.log('KOH LANTA ' + this.state.valID );
+                 
+                    let monAPI = "http://localhost:16500/ajoutEquipementCarton";
+                    fetch(monAPI, {
+                      method: 'POST',
+                      headers: { 'content-type': 'application/json' },
+                      body: JSON.stringify({
+                          "idCarton": this.state.valID,
+                          "idObjet": cell.id
+                      })
+                    })
+                       
+                }
+              }.bind(this));
+         
+
+
+          
+      
+            
+          
+          
+
+          
+
+
+
+          /*var row = this.state.tab.map(function(cell) {
+            var value = "id" + cell.id;
+            var elemID = document.getElementByID(value).checked;
+            if(elemID){
+
+              try{
+                let monAPI = "http://localhost:16500/ajoutObjetCarton";
+                
+                fetch(monAPI, {
+                  method: 'POST',
+                  
+                  headers: { 'content-type': 'application/json' },
+                  body: JSON.stringify({
+                      
+                  })
+                })
+              }catch(e){
+                console.log(e);
+              }
+                this.state.idDestination = cell.id;
+                return cell.id;       
+            }
+          }.bind(this));*/
+
           //this.setState(initialState);
+          this.props.history.push('/ListeSalles');
         }
-        //this.props.history.push('/ListeSalles');
+        
          
       };
 
@@ -169,7 +277,7 @@ class CreationCarton extends React.Component {
             <br/>
             <div class="form-group">
               <label>Destination</label>
-              <select value={this.state.value} onChange={this.handleChange} id="inputDestination">
+              <select value={this.state.inputDestination} onChange={this.handleChange} id="inputDestination">
                   {this.state.text2}
               </select>
             </div>
