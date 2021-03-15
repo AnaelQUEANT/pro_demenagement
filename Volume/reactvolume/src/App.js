@@ -2,7 +2,8 @@ import './App.css';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import Recapitulatif from './Recapitulatif';
 import CalculateurVolume from './CalculateurVolume';
-
+sessionStorage.setItem('cle','valeur');
+sessionStorage.setItem();
 
 function App() {
   return (
