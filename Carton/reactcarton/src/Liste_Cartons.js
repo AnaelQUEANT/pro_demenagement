@@ -1,6 +1,7 @@
 import React from 'react'
 import TemplateListe from './Template_Liste.js'
 
+
 class ListeCartons extends React.Component {
 
 
@@ -32,7 +33,7 @@ class ListeCartons extends React.Component {
             
                 for(var i=0;i<response.length;i++){
                     test[i] = { photo:  response[i].Carton_photo, id : response[i].Carton_id, origine :  response[i].Carton_origine, destination : response[i].Piece_nom, dim : response[i].Carton_largeur + "x" +  response[i].Carton_longueur + "x" +  response[i].Carton_hauteur, fragile : response[i].Carton_fragile,};
-                    console.log(response[i].Carton_origine);
+                    
                 }
                 console.log(this.state.tab.length);
                 var listItems = this.state.tab.map(e => (
