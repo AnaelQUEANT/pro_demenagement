@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 .le_cercle{
     margin: 10px;
     width: 100px;
@@ -8,8 +8,34 @@
     border-radius: 100px;
 }
 
-.image_carton_virtuel{
-    border-radius: 5px;
+ 
+.carton-elem { 
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    
+    
+    font-size: 70%;
+
 }
-=======
->>>>>>> Stashed changes
+
+.test{
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.circle {
+    background-color: rgb(240, 240, 240);
+    margin: 15px;
+    padding: 12px 20px;
+    border-radius: 100px;
+}
+
+.photo-carton {
+    margin-left: 30%;
+    margin-right: 10%;
+}
