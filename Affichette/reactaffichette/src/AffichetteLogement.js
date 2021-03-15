@@ -42,6 +42,10 @@ class AffichetteLogement extends React.Component {
             });
         }
 
+  imprimer() {
+    window.print();
+  }
+
   render() {
     return (
       <div>
@@ -49,6 +53,9 @@ class AffichetteLogement extends React.Component {
         <div class="affichetteContainer">
           {this.state.text}
         </div>
+        <button id="bouton" onClick={this.imprimer}>
+          Imprimer mes affichettes
+        </button>
       </div>
     )
   }

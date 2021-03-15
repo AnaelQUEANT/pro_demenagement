@@ -10,6 +10,7 @@ import Affichette from './Affichette.js'
 import Logement from './Logement.js'
 import AffichetteLogement from './AffichetteLogement.js'
 import Etiquette from './Etiquette.js'
+import Test from './Test.js'
 
 class App extends React.Component {
 
@@ -27,6 +28,7 @@ class App extends React.Component {
                             <Route path="/Logement" component={Logement}/>
                             <Route path="/AffichetteLogement" component={AffichetteLogement}/>
                             <Route path="/Etiquette" component={Etiquette}/>
+                            <Route path="/Test" component={Test}/>
                             <Route path="/" component={Affichette} />
                        </Switch>
                     </div>
