@@ -17,12 +17,6 @@ function Recapitulatif() {
         </Link>
         <h1 className="titre"> Récapitulatif </h1>
       </div>
-    
-      <SalleList />
-      <MobilierList />
-      <div className="compteur">
-        <CompteurVolume />
-      </div>
       
     </div>
   );

@@ -68,6 +68,22 @@ app.get('/piece', (req, res) => {
         connection.end();
     })
 })
+
+
+app.get('/typemobilier/:nomPiece', (req, res) => {
+    const nom = req.params.nomPiece;
+    let connection = setupConnection();
+    connection.connect((err) => {
+        if (err) throw err;
+        console.log("Connecté !");
+        connection.query('SELECT * from Type_Mobilier inner join Type_Piece where Nom_Piece = '+nom, function (error, results, fields) {
+            if (error) throw error;
+            res.send(results);
+            
+        })
+        connection.end();
+    })
+})
 /*
 app.get('/cartonPiece/:idPiece', (req, res) => {
     const id = req.params.idPiece;
