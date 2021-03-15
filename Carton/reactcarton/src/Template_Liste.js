@@ -1,7 +1,8 @@
 import React from 'react'
-import boutonModif from './Image/bouton_modifier.PNG';
-import ImageCarton from './Image/carton.jpg';
+import boutonModif from './Image/bouton_modifier.png';
+import ImageCarton from './Image/carton.png';
 import {Link} from 'react-router-dom'
+import './ListeCartons.css';
 
 
 class TemplateListe extends React.Component {
@@ -13,7 +14,7 @@ class TemplateListe extends React.Component {
                 <div className="row">
                     <div className="col-2">
                        {/*{this.props.photo}*/}
-                       <img className="ImageCarton" src={ImageCarton} width="5%" height="5%" alt="image temporaire de carton"></img>
+                       <img className="ImageCarton" src={ImageCarton} width="150%"  alt="image temporaire de carton"></img>
                     </div>
                     <div className="col-2">
                         {this.props.id}
@@ -27,7 +28,7 @@ class TemplateListe extends React.Component {
                     </div>
                     <div className="col-2" >
                         <Link to={"ModifierCarton?id="+this.props.id}>
-                            <img className="boutonModif" src={boutonModif} width="5%" height="5%" alt="Lien modif de carton"></img>
+                            <img className="boutonModif" src={boutonModif} width="150%"  alt="Lien modif de carton"></img>
                 
                         </Link>
                     </div>
