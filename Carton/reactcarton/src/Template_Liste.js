@@ -16,10 +16,10 @@ class TemplateListe extends React.Component {
                        {/*{this.props.photo}*/}
                        <img className="ImageCarton" src={ImageCarton} width="150%"  alt="image temporaire de carton"></img>
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 circle">
                         {this.props.id}
                     </div>
-                    <div className="col-5">
+                    <div className="col-5" dest_ori>
                         <span>{this.props.origine} vers {this.props.destination}</span>
                         <br/>
                         <span>Dim : {this.props.dim}</span>
