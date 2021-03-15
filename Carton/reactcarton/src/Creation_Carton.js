@@ -2,7 +2,7 @@ import React from 'react'
 import TemplateListeObjet from './Template_ListeEquipementCarton.js'
 import TemplateListeDeroulante from './Template_ListeDeroulante.js'
 import {Redirect} from 'react-router-dom'
-
+import './CreationCarton.css';
 
 class CreationCarton extends React.Component {
 
@@ -283,14 +283,20 @@ class CreationCarton extends React.Component {
             </div>
             <br/>
             <div class="form-group">
-                <input type="text" className="form-control" id="origine" placeholder="Origine" value={this.state.origine} onChange={this.handleChange}/>
-                <div style={{ fontSize: 12, color: "red" }}>
-                  {this.state.origineError}
-                </div>
+                <div class="wrap-input100 validate-input">
+                  <input class="input100" type="text" name="name" placeholder="Origine" id="origine" value={this.state.origine} onChange={this.handleChange}/>
+                  <div style={{ fontSize: 12, color: "red" }}>
+                    {this.state.origineError}
+                  </div>
+                 </div>
+		
+           
+                
             </div>
             <br/>
             <div>
                 <div class="row">
+                    
                     <input type="number" className="form-control col-sm" id="inputLargeur" value={this.state.largeur} placeholder="Largeur" onChange={this.handleChange}></input>
                     <div style={{ fontSize: 12, color: "red" }}>
                       {this.state.largeurError}
