@@ -13,6 +13,7 @@ class TemplateGrid extends React.Component {
       return (
         <div className="col-4 flex-column btn_carton_virtuel" height="100%">
             <Link to={"ListeCartons?id="+this.props.id}>
+              <label className="nbCarton"><b>{this.props.nbCarton}</b></label>
               <img className="image_carton_virtuel" src={cartonSelect} width="100%" height="80%" alt="Lien select carton (Image absente)"></img>
               {/*
               <button type="button"  className="btn btn-outline-danger">
@@ -23,6 +24,7 @@ class TemplateGrid extends React.Component {
               */}
             </Link>
             <label className="texte_carton_virtuel">{this.props.mess}</label>
+            
         </div>
       )
     }
