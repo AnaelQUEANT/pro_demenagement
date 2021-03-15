@@ -32,7 +32,6 @@ class ListeSalles extends React.Component {
         console.log(test);
         var listItems = this.state.tab.map(e => (
           <TemplateGrid mess={e.nom} id={e.id} nbCarton={e.nbCarton} />
-
         ));
         this.setState({ text: listItems })
 
