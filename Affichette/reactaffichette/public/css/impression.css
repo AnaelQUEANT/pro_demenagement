@@ -1,0 +1,22 @@
+#bouton{
+	display: none;
+}
+
+.titre{
+	display: none;
+}
+
+.navbar{
+	display: none!important;
+}
+
+.affichette{
+	background-color: #35646a; 
+	border-radius: 15px; 
+	color: white;
+	text-align: center;
+	height: 200px;
+	margin: 20px;
+	display:flex;
+	font-size: 45px;
+}
