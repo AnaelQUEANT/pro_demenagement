@@ -259,37 +259,40 @@ class CreationCarton extends React.Component {
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
-          
-            <br/>
-            <div>
-              <form>
-                <div class="form-group">
-                  <input type="file" className="form-control-file" id="inputFile" onChange={this.handleChange} />
-                </div>
-              </form>
-            </div>
-            <br/>
-            <div>
-              {/*
-                <div>
-                  <input type="color" id="head" name="head" />
-                </div>
-                */}
-                <label>Couleur</label>
-                <select id="selectCouleur" onChange={this.handleChange}>
-                  <option></option>
-	                <option>Rouge</option>
-	                <option>Bleu</option>
-	                <option>Vert</option>
-                  <option>Jaune</option>
-                  <option>Violet</option>
-                </select>
-            </div>
-            <br/>
-            <div>
+          <div className="row">
+              <br/>
               <div>
-                <input type="checkbox" id="inputFragile" name="Fragile" onChange={this.handleChange} />
-                <label for="Fragile">Fragile</label>
+                <form>
+                  <div class="form-group">
+                    <input type="file" className="form-control-file" id="inputFile" onChange={this.handleChange} />
+                  </div>
+                </form>
+              </div>
+              <br/>
+              <div>
+                <div>
+                  {/*
+                    <div>
+                      <input type="color" id="head" name="head" />
+                    </div>
+                    */}
+                    <label>Couleur</label>
+                    <select id="selectCouleur" onChange={this.handleChange}>
+                      <option></option>
+                      <option>Rouge</option>
+                      <option>Bleu</option>
+                      <option>Vert</option>
+                      <option>Jaune</option>
+                      <option>Violet</option>
+                    </select>
+                </div>
+                <br/>
+                <div>
+                  <div>
+                    <input type="checkbox" id="inputFragile" name="Fragile" onChange={this.handleChange} />
+                    <label for="Fragile">Fragile</label>
+                  </div>
+                </div>
               </div>
             </div>
             <br/>
