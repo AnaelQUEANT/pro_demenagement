@@ -101,7 +101,7 @@ export const MobilierList = (props) => {
     <div>
     <div className="list-mobilier">{MobiList}</div>
       <div className="compteur">
-        <CompteurVolume nbElem={nbElement} volume={vol} />
+        <CompteurVolume nbElem={nbElement} volume={vol} selection={compteurMobilier}/>
       </div>
     </div>
   );

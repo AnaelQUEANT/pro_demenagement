@@ -30,7 +30,7 @@
 }
 
 .laDivAffichette{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     margin-bottom: 2%;
     width: 100%;  

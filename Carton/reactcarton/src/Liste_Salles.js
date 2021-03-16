@@ -56,7 +56,7 @@ class ListeSalles extends React.Component {
           {this.state.text}
         </div>
         <div className="laDivAffichette">
-          <button type="button" className="btn btn-outline-danger bouttonAffichette">
+          <button type="button" className="btn btn-primary bouttonAffichette">
             Editer des affichettes
           </button>
         </div>

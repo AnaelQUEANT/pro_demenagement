@@ -8,30 +8,34 @@ export const RecapPiece = (props) => {
   // Créer une donnée réactive
   const [salles, setSalle] = useState([]);
   const [mobiliers, setMobilier] = useState([]);
+  const [selection, setSelection] = useState([])
 
   useEffect(() => {
     // Execute une action au ComponentDidMount
     const getDatas = async () => {
       const salle = await getSalle();
       const mobilier = await getMobilier();
+      const selectionTempo = props.select.split`,`.map(x=>+x);
       setSalle(salle);
       setMobilier(mobilier);
+      setSelection(selectionTempo);
+      console.log(selectionTempo)
     }
     getDatas()
     // Execute une action au ComponentDidUnMount
     // return
-  }, []);
+  }, [props.select]);
 
   // Execute à chaque changement de valeur de '[]'
   useEffect(() => {
-  }, [salles])
+  }, []);
 
 
 
-  const SalleListe = salles.map((e, i) => {
+  const SalleListe = salles.map((lesSalles, i) => {
 
-    const ListeMobilier = mobiliers.map((a, i) => {
-        if(a.Piece_id === e.Piece_id) {
+    const ListeMobilier = mobiliers.map((lesMobiliers, i) => {
+        if(lesMobiliers.Piece_id === lesSalles.Piece_id) {
             return (
             <div key={i} className="mobilier-elem">
                 <div>
@@ -41,13 +45,13 @@ export const RecapPiece = (props) => {
                 </div>
                 <div className="mobilier-info">
                     <div>
-                        {a.Mobilier_nom}
+                        {lesMobiliers.Mobilier_nom}
                     </div>
                     <div>
-                        Dim : {a.Mobilier_longueur} x {a.Mobilier_largeur} x {a.Mobilier_hauteur}
+                        Dim : {lesMobiliers.Mobilier_longueur} x {lesMobiliers.Mobilier_largeur} x {lesMobiliers.Mobilier_hauteur}
                     </div>
                 </div>
-                <span className="quantite">1</span>
+                <span className="quantite">{selection[lesMobiliers.Mobilier_id]}</span>
                 <div className="bouton">
                     <button type="button" className="btn btn-danger btn-p">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">
@@ -79,7 +83,7 @@ export const RecapPiece = (props) => {
 
     return (
       <div key={i} className="piece-list">
-          <h3 className="titre">{e.Piece_nom}</h3>
+          <h3 className="titre">{lesSalles.Piece_nom}</h3>
           <div className="mobilier-liste">
               {ListeMobilier}
           </div>
