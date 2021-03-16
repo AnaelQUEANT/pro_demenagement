@@ -19,7 +19,6 @@ export const RecapPiece = (props) => {
       setSalle(salle);
       setMobilier(mobilier);
       setSelection(selectionTempo);
-      console.log(selectionTempo)
     }
     getDatas()
     // Execute une action au ComponentDidUnMount
@@ -31,11 +30,34 @@ export const RecapPiece = (props) => {
   }, []);
 
 
+  const handleClickPlus = ((mobi) => {
+    const newCompteur = [...selection];
+      newCompteur[mobi.Mobilier_id] = newCompteur[mobi.Mobilier_id] + 1;
+      setSelection(newCompteur)
+  })
+
+  const handleClickMoins = ((mobi) => {
+    if(selection[mobi.Mobilier_id] > 0) {
+      const newCompteur = [...selection];
+      newCompteur[mobi.Mobilier_id] = newCompteur[mobi.Mobilier_id] - 1;
+      setSelection(newCompteur)
+    }
+  })
+
+  const handleClickDel = ((mobi) => {
+    if(selection[mobi.Mobilier_id] > 0) {
+      const newCompteur = [...selection];
+      newCompteur[mobi.Mobilier_id] = 0;
+      setSelection(newCompteur)
+    }
+  })
+
 
   const SalleListe = salles.map((lesSalles, i) => {
+      
 
     const ListeMobilier = mobiliers.map((lesMobiliers, i) => {
-        if(lesMobiliers.Piece_id === lesSalles.Piece_id) {
+        if(lesMobiliers.Piece_id === lesSalles.Piece_id && selection[lesMobiliers.Mobilier_id] > 0) {
             return (
             <div key={i} className="mobilier-elem">
                 <div>
@@ -53,13 +75,13 @@ export const RecapPiece = (props) => {
                 </div>
                 <span className="quantite">{selection[lesMobiliers.Mobilier_id]}</span>
                 <div className="bouton">
-                    <button type="button" className="btn btn-danger btn-p">
+                    <button type="button" className="btn btn-danger btn-p" onClick={() => handleClickPlus(lesMobiliers)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">
                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                         </svg>
                     </button>
 
-                    <button type="button" className="btn btn-danger btn-m">
+                    <button type="button" className="btn btn-danger btn-m" onClick={() =>handleClickMoins(lesMobiliers)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-dash" viewBox="0 0 16 16">
                             <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                         </svg>
@@ -68,7 +90,7 @@ export const RecapPiece = (props) => {
          
                 </div>
                 <div className="cross">
-                    <button type="button" className="btn btn-sm btn-del">
+                    <button type="button" className="btn btn-sm btn-del" onClick={() => handleClickDel(lesMobiliers)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-x" viewBox="0 0 16 16">
                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                         </svg>
@@ -80,12 +102,15 @@ export const RecapPiece = (props) => {
 
         
     })
-
     return (
       <div key={i} className="piece-list">
-          <h3 className="titre">{lesSalles.Piece_nom}</h3>
+          <h3 className="titre">{([...ListeMobilier].filter(elem => elem != null).length !== 0) ? lesSalles.Piece_nom : null}</h3>
           <div className="mobilier-liste">
               {ListeMobilier}
+              {/* {console.log(ListeMobilier.Array === new Array(10).fill(null) ? true : false)}
+              {console.log(([...ListeMobilier].filter(elem => elem != null).length !== 0) ? lesSalles.Piece_nom : null)}
+              {console.log([...new Array(10).fill(null)])}
+              {console.log([...ListeMobilier] === [...(new Array(10).fill(null))])} */}
           </div>
       </div>
 
