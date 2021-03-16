@@ -86,7 +86,6 @@ app.get('/infoCarton/:id', (req, res) => {
 })
 
 app.get('/getIDCarton/', (req, res) => {
-    const id = req.params.id;
     let connection = setupConnection();
     connection.connect((err) => {
         if(err) throw err;
@@ -128,7 +127,7 @@ app.post('/ajoutEquipementCarton', async (req, res) =>{
     let connection = setupConnection();
     connection.query('INSERT into Carton_has_Equipement values (' + idCarton + ', ' + idObjet + ')', function (error, results, fields) {
             if (error) throw error;
-            res.send("Ajout effecté");
+            res.send("Ajout effectué");
     })
     connection.end();
 })

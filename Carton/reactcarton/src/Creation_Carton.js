@@ -2,6 +2,8 @@ import React from 'react'
 import TemplateListeObjet from './Template_ListeEquipementCarton.js'
 import TemplateListeDeroulante from './Template_ListeDeroulante.js'
 import {Redirect} from 'react-router-dom'
+import {Mutex} from 'async-mutex';
+
 import './CreationCarton.css';
 
 class CreationCarton extends React.Component {
@@ -81,6 +83,44 @@ class CreationCarton extends React.Component {
               }); 
       }
 
+      getIdCarton(){
+        console.log("SNK C TRO B1");
+            fetch("http://localhost:16500/getIDCarton")
+              .then(response => response.json())
+              .then(response => {
+                  var test3 = this.state.valID;
+                  for(var i=0;i<response.length;i++){
+                    this.state.valID  = response[i].Carton_id;
+                  }
+                 console.log("YOOO : " + this.state.valID );
+                 
+              });
+              return true;
+      }
+
+      ajoutObjet(){
+        this.state.tab.map(function(cell) {
+          var idObjet = "id" + cell.id;
+          var elementTrue= document.getElementById(idObjet).checked;
+          console.log("ICCCCCCCCCI : " + cell.id + " ettt " + this.state.valID);
+          if(elementTrue){
+            console.log('KOH LANTA ' + this.state.valID );
+           
+              let monAPI = "http://localhost:16500/ajoutEquipementCarton";
+              fetch(monAPI, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    "idCarton": this.state.valID,
+                    "idObjet": cell.id
+                })
+              })
+                 
+          }
+        }.bind(this));
+        return true;
+      }
+
 
       handleChange = event => {
         console.log(event.target.value);
@@ -156,43 +196,21 @@ class CreationCarton extends React.Component {
               })
               
             })
-            fetch("http://localhost:16500/getIDCarton")
-              .then(response => response.json())
-              .then(response => {
-                  var test3 = this.state.valID;
-                  for(var i=0;i<response.length;i++){
-                    this.state.valID  = response[i].Carton_id;
-                  }
-                 console.log("YOOO : " + this.state.valID );
-              });
+            
             
           }catch(e){
             console.log(e);
           }
-         
-       
-          
 
+              let bitte = async () => {
+                let oui =  await this.getIdCarton();
+                let oui2 = await this.ajoutObjet();
+              }
+              
 
-              this.state.tab.map(function(cell) {
-                var idObjet = "id" + cell.id;
-                var elementTrue= document.getElementById(idObjet).checked;
-                console.log("ICCCCCCCCCI : " + cell.id + " ettt " + this.state.valID);
-                if(elementTrue){
-                  console.log('KOH LANTA ' + this.state.valID );
-                 
-                    let monAPI = "http://localhost:16500/ajoutEquipementCarton";
-                    fetch(monAPI, {
-                      method: 'POST',
-                      headers: { 'content-type': 'application/json' },
-                      body: JSON.stringify({
-                          "idCarton": this.state.valID,
-                          "idObjet": cell.id
-                      })
-                    })
-                       
-                }
-              }.bind(this));
+              
+
+              
          
 
 
