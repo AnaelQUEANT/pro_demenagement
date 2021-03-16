@@ -1,5 +1,6 @@
 import { RecapPiece } from './components/RecapPiece';
 import {Link} from 'react-router-dom'
+import { AvisCamion } from './components/AvisCamion';
 
 
 function Recapitulatif(props) {
@@ -17,6 +18,9 @@ function Recapitulatif(props) {
 
       <div className="recap">
         <RecapPiece select={props.location.state} />
+      </div>
+      <div className="camion">
+        <AvisCamion />
       </div>
       
     </div>

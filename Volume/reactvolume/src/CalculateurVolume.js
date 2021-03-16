@@ -1,11 +1,17 @@
 import './CalculateurVolume.css';
 import { MobilierList } from './components/MobilierList';
 import { SalleList } from './components/SalleList';
-// import { CompteurVolume } from './components/CompteurVolume';
 import {Link} from 'react-router-dom'
+import { useState } from 'react';
 
 
 function CalculateurVolume() {
+  const [currentSelectedSalle, setCurrentSelectedSalle] = useState('1');
+
+  const handleSalleSelected = (id) => {
+    setCurrentSelectedSalle(id)
+  }
+
   return (
     <div>
       <div className="menu">
@@ -18,11 +24,8 @@ function CalculateurVolume() {
         <h1> Calculateur de volume </h1>
       </div>
     
-      <SalleList />
-      <MobilierList />
-      {/* <div className="compteur">
-        <CompteurVolume />
-      </div> */}
+      <SalleList onSalleSelected={handleSalleSelected}/>
+      <MobilierList id={currentSelectedSalle}/>
       
     </div>
   );

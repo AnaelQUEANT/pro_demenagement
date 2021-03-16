@@ -40,6 +40,22 @@ app.get('/mobilier', (req, res) => {
     })
 })
 
+app.get('/mobilierByPiece/:idSalle', (req, res) => {
+    const id = req.params.idSalle;
+    let connection = setupConnection();
+    setupConnection();
+    connection.connect((err) => {
+        if (err) throw err;
+        console.log("Connecté !");
+        connection.query('SELECT * from Type_Mobilier WHERE Piece_id = '+id, function (error, results, fields) {
+            if (error) throw error;
+            res.send(results);
+            
+        })
+        connection.end();
+    })
+})
+
 
 app.get('/carton', (req, res) => {
     let connection = setupConnection();

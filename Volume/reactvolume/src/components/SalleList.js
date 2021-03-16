@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import { getSalle } from '../services/salle';
 import './SalleList.css';
 
@@ -24,15 +24,16 @@ export const SalleList = (props) => {
   useEffect(() => {
   }, [salles])
 
-
+  const handleChangeSalle = (id) => {
+    props.onSalleSelected(id)
+  }
 
   const SalleList = salles.map((e, i) => {
     return (
-      <div key={i}>
-        <input type="button" className="btn-check" id={i} autoComplete="off"/>
-        <label className="btn btn-outline-danger" htmlFor={i}>{e.Piece_nom}</label>
-      </div>
-
+      <React.Fragment key={i}>
+        <input key={i} type="button" className="btn-check" id={e.Piece_id} autoComplete="off" onClick={() => handleChangeSalle(e.Piece_id)} />
+        <label className="btn btn-outline-danger" htmlFor={e.Piece_id}>{e.Piece_nom}</label>
+      </React.Fragment>
     )
   })
   

@@ -1,32 +1,27 @@
 import { useEffect, useState} from 'react';
-import { getMobilier } from '../services/mobilier';
+import { getMobilierByPiece } from '../services/mobilier';
 import { CompteurVolume } from '../components/CompteurVolume';
 import './MobilierList.css';
 
 export const MobilierList = (props) => {
   // Créer une donnée réactive
   const [mobiliers, setMobiliers] = useState([]);
-  const [compteurMobilier, setCompteurMobilier] = useState([]);
-  const [nbElement, setNbElement] = useState([]);
-  const [vol, setVolume] = useState([]);
-
+  const [compteurMobilier, setCompteurMobilier] = useState([...new Array(50).fill(0)]);
+  const [nbElement, setNbElement] = useState([0]);
+  const [vol, setVolume] = useState([0]);
 
   useEffect(() => {
     // Execute une action au ComponentDidMount
     const getDatas = async () => {
-      const mobi = await getMobilier();
+      // const mobi = await getMobilier();
+      const mobi = await getMobilierByPiece(props)
       setMobiliers(mobi);
 
-      let array = new Array(50).fill(0);
-      setCompteurMobilier(array);
-
-      setNbElement(0);
-      setVolume(0);
     }
     getDatas()
     // Execute une action au ComponentDidUnMount
     // return
-  }, []);
+  }, [props]);
 
   // Execute à chaque changement de valeur de '[]'
   useEffect(() => {
@@ -44,6 +39,12 @@ export const MobilierList = (props) => {
         nb--;
         setNbElement(nb)
       }
+
+      let volume = vol;
+      volume -= mobi.Mobilier_largeur * mobi.Mobilier_longueur * mobi.Mobilier_hauteur;
+      volume = Math.round (volume * 100) / 100;
+      setVolume(volume)
+
     }
   })
 

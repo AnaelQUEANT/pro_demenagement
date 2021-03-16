@@ -37,7 +37,7 @@ export const RecapPiece = (props) => {
   })
 
   const handleClickMoins = ((mobi) => {
-    if(selection[mobi.Mobilier_id] > 0) {
+    if(selection[mobi.Mobilier_id] > 1) {
       const newCompteur = [...selection];
       newCompteur[mobi.Mobilier_id] = newCompteur[mobi.Mobilier_id] - 1;
       setSelection(newCompteur)

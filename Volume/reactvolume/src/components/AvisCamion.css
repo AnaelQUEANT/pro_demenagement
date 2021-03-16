@@ -1,0 +1,91 @@
+.container-recommendation {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    /* border: 1px solid rgb(37, 1, 9); */
+    transform: scale(1.3);
+    background-color: rgb(245, 243, 243);
+    border-radius: 10px;
+    padding: 5px;
+}
+.header-recommendation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+    /* border: 1px solid grey; */
+}
+
+.body-recommendation {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+    /* border: 1px solid orangered; */
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+}
+/* .volume-camion {
+    border: 1px solid lightgreen;
+} */
+.valeur-volume {
+    color: #FF7276;
+}
+.body-logo-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: center;
+    /* border: 1px solid lightblue; */
+}
+.info-camion {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+    font-size: 0.8em;
+    /* border: 1px solid cadetblue; */
+}
+.bi-truck {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+/* .elem-info-camion {
+     border: 1px solid purple; 
+} */
+.titre-conseil {
+    color: #FF7276;
+}
+.footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+}
+.btn-ok{
+    position: relative;
+    margin-top: 40px;
+    background-color: #FF7276;
+    color: white;  
+    border-radius: 20px;
+}
+.btn-non {
+    position: relative;
+    margin-top: 20px;
+    color: rgb(138, 138, 138);
+
+}

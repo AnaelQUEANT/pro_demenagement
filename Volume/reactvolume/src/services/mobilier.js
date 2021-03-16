@@ -6,7 +6,7 @@ export const getMobilier = async () => {
   }
 
   export const getMobilierByPiece = async (id) => {
-    const url = 'http://localhost:16501/mobilierByPiece/'+id
+    const url = 'http://localhost:16501/mobilierByPiece/'+id.id
     const request = await fetch(url)
     const result = await request.json()
     return result
