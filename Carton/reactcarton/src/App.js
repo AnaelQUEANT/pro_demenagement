@@ -8,6 +8,9 @@ import ListeSalles from './Liste_Salles.js'
 import CreationCarton from './Creation_Carton.js'
 import ListeCartons from './Liste_Cartons.js'
 import ModifierCarton from './Modifier_Carton.js'
+import MenuCarton from './Menu_Carton.js'
+
+
 class App extends React.Component {
   render() {
     return (
@@ -19,6 +22,7 @@ class App extends React.Component {
               <Route path="/CreationCarton" component={CreationCarton} />
               <Route path="/ListeCartons" component={ListeCartons} />
               <Route path="/ModifierCarton" component={ModifierCarton} />
+              <Route exact path="/" component={MenuCarton} />
             </Switch>
           </div>
         </BrowserRouter>

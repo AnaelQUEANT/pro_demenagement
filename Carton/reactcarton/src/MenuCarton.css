@@ -1,0 +1,45 @@
+
+
+ 
+.liste-elem { 
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 90%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    background: #f6f6f6 ;
+    
+    font-size: 70%;
+
+}
+
+.liste-info{
+    
+    align-content: center;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.test{
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ImageChevron{
+    width: 8%;
+    margin-left: 10%;
+}
+
+.photo-info{
+    margin-left: 78%;
+}
+
+
+
+
+
+
