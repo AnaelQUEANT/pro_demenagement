@@ -117,21 +117,43 @@ app.get('/objetCarton/:id', (req, res) => {
 })
 
 app.post('/ajoutEquipementCarton', async (req, res) =>{
-    const idCarton = req.body.idCarton;
+
     const idObjet = req.body.idObjet;
     
 
-    if (!idCarton || !idObjet) {
+    if (!idObjet) {
         res.send("Il manque des arguments");
     }
 
+    
     let connection = setupConnection();
-    connection.query('INSERT into Carton_has_Equipement values (' + idCarton + ', ' + idObjet + ')', function (error, results, fields) {
-            if (error) throw error;
-            res.send("Ajout effectué");
+    connection.connect((err) => {
+        if (err) throw err;
+        console.log("Connecté !");
+        let idCarton;
+    console.log("prout");
+    fetch('http://localhost:16500/getIDCarton/')
+    .then(response => response.json())
+    .then(response => {
+        console.log("MAIIIIIIIIIIS : " + response[0].Carton_id);
+         
+    connection.query('INSERT into Carton_has_Equipement values ('+ response.id + ', ' + idObjet + ')', function (error, results, fields) {
+                    if (error) throw error;
+                    res.send("Ajout effecté");
+                })
     })
-    connection.end();
+        
+        connection.end();
+    })
+    
+    
+    
+    
+   
+    
+
 })
+
 
 
 

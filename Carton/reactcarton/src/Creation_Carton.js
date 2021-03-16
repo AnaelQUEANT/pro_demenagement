@@ -79,27 +79,7 @@ class CreationCarton extends React.Component {
       });
     return true;
   }
-  ajoutObjet() {
-    this.state.tab.map(function (cell) {
-      var idObjet = "id" + cell.id;
-      var elementTrue = document.getElementById(idObjet).checked;
-      console.log("ICCCCCCCCCI : " + cell.id + " ettt " + this.state.valID);
-      if (elementTrue) {
-        console.log('KOH LANTA ' + this.state.valID);
-
-        let monAPI = "http://localhost:16500/ajoutEquipementCarton";
-        fetch(monAPI, {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            "idCarton": this.state.valID,
-            "idObjet": cell.id
-          })
-        })
-      }
-    }.bind(this));
-    return true;
-  }
+  
   handleChange = event => {
     console.log(event.target.value);
     this.setState({ [event.target.id]: event.target.value });
@@ -136,20 +116,24 @@ class CreationCarton extends React.Component {
     if (isValid) {
       console.log(this.state);
       var elementCheck = document.getElementById('inputFragile').checked;
+      var nomDestination = document.getElementById('inputDestination').value;
       var row = this.state.tab2.map(function (cell) {
-        if (cell.nom == this.state.inputDestination) {
+        console.log("ICIIIIIIIII " + cell.nom + " et " + nomDestination + " donc " + cell.id);
+        if (cell.nom == nomDestination) {
           this.state.idDestination = cell.id;
+
           return cell.id;
         }
       }.bind(this));
       try {
         let monAPI = "http://localhost:16500/ajoutCarton";
-        console.log(this.state.origine + this.state.selectCouleur + this.state.inputLargeur + this.state.inputLongueur + this.state.inputHauteur + elementCheck + this.state.idDestination);
         if (elementCheck) {
           elementCheck = 1;
         } else {
           elementCheck = 0;
         }
+        console.log(this.state.origine + this.state.selectCouleur + this.state.inputLargeur + this.state.inputLongueur + this.state.inputHauteur + elementCheck + this.state.idDestination);
+
         fetch(monAPI, {
           method: 'POST',
 
@@ -169,10 +153,24 @@ class CreationCarton extends React.Component {
         console.log(e);
       }
 
-      let bitte = async () => {
-        let oui = await this.getIdCarton();
-        let oui2 = await this.ajoutObjet();
-      }
+      this.state.tab.map(function (cell) {
+        var idObjet = "id" + cell.id;
+        var elementTrue = document.getElementById(idObjet).checked;
+        console.log("ICCCCCCCCCI : " + cell.id + " ettt " + this.state.valID);
+        if (elementTrue) {
+          console.log('KOH LANTA ' + this.state.valID);
+  
+          let monAPI = "http://localhost:16500/ajoutEquipementCarton";
+          fetch(monAPI, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              "idObjet": cell.id
+            })
+          })
+        }
+      }.bind(this));
+
       /*var row = this.state.tab.map(function(cell) {
         var value = "id" + cell.id;
         var elemID = document.getElementByID(value).checked;
