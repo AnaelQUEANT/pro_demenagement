@@ -16,7 +16,7 @@ class ModifierCarton extends React.Component {
         text2 : '',
         tab : [],
         tab2 : [],
-        get : props.location.search
+        get : props.location.search,
       };
     }
 
@@ -41,7 +41,7 @@ class ModifierCarton extends React.Component {
               console.log("youhou " + response.length);
               for(var i=0;i<response.length;i++){
                   if(non == 2){
-                    test[i] = {  photo:  response[i].Carton_photo, id : response[i].Carton_id, origine :  response[i].Carton_origine, destination : response[i].Piece_nom, largeur : response[i].Carton_largeur ,longueur : response[i].Carton_longueur, hauteur : response[i].Carton_hauteur, fragile : response[i].Carton_fragile};
+                    test[i] = {  photo:  response[i].Carton_photo, id : response[i].Carton_id, origine :  response[i].Carton_origine, destination : response[i].Piece_nom, largeur : response[i].Carton_largeur ,longueur : response[i].Carton_longueur, hauteur : response[i].Carton_hauteur, fragile : response[i].Carton_fragile, couleur : response[i].Carton_couleur};
                   }
                   non = 1;
                   test2[i] = { nom : response[i].Equipement_Carton_nom,id : response[i].Equipement_Carton_id};
@@ -49,7 +49,7 @@ class ModifierCarton extends React.Component {
               }
               console.log(this.state.tab);
               var listItems = this.state.tab.map(e => (
-                  <TemplateFormulaireModif photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} largeur={e.largeur} longueur={e.longueur} hauteur={e.hauteur} fragile={e.fragile} idBouton={e.id} />
+                  <TemplateFormulaireModif photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} largeur={e.largeur} longueur={e.longueur} hauteur={e.hauteur} fragile={e.fragile} idBouton={e.id} couleur={e.couleur}/>
       
               ));
               this.setState({text:listItems})

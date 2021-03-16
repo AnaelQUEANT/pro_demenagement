@@ -104,6 +104,7 @@ app.get('/objetCarton/:id', (req, res) => {
     connection.connect((err) => {
         if(err) throw err;
         let requete = 'SELECT * from Carton ';
+        requete += 'left join Piece using(Piece_id) ';
         requete += 'left join Carton_has_Equipement using(Carton_id) ';
         requete += 'left join Equipement_Carton using(Equipement_Carton_id) ';
         requete += 'where Carton.Carton_id = ' + id;
