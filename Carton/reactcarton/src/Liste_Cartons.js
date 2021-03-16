@@ -1,5 +1,6 @@
 import React from 'react'
 import TemplateListe from './Template_Liste.js'
+import TemplateMenu from './Template_Navigation.js'
 import './ListeCartons.css';
 
 class ListeCartons extends React.Component {
@@ -55,9 +56,15 @@ class ListeCartons extends React.Component {
 
     render() {
       return (
-        <div class="row test">
-            {this.state.text}
+        <div>
+          <TemplateMenu nom="ListeSalles" />
+          <div>
+              <div class="row test">
+                {this.state.text}
+            </div>
+          </div>
         </div>
+        
       )
     }
   }

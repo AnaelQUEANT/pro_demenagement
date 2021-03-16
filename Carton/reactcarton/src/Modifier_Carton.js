@@ -1,6 +1,8 @@
 import React from 'react'
 import TemplateFormulaireModif from './Template_FormulaireModification.js'
 import TemplateListeObjet from './Template_ListeObjet.js'
+import TemplateMenu from './Template_Navigation.js'
+
 
 
 
@@ -66,9 +68,14 @@ class ModifierCarton extends React.Component {
     render() {
       return (
         <div>
+          <TemplateMenu nom="ListeSalles" />
+          <div>
             {this.state.text}
             {this.state.text2}
         </div>
+
+        </div>
+        
         
       )
     }

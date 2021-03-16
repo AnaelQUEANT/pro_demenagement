@@ -1,6 +1,8 @@
 import React from 'react'
 import TemplateListeObjet from './Template_ListeEquipementCarton.js'
 import TemplateListeDeroulante from './Template_ListeDeroulante.js'
+import TemplateMenu from './Template_Navigation.js'
+
 import './CreationCarton.css';
 import cartonAjout from './Image/AjoutImage.PNG';
 class CreationCarton extends React.Component {
@@ -197,72 +199,76 @@ class CreationCarton extends React.Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <br />
-        <div className="row">
-          <img className="col-6" src={cartonAjout} alt="Lien select carton (Image absente)"></img>
-          <div className="col-6">
-            <div className="col-">
-              <label>Couleur</label>
-              <br/>
-              <select id="selectCouleur" width="100%" onChange={this.handleChange}>
-                <option></option>
-                <option>Rouge</option>
-                <option>Bleu</option>
-                <option>Vert</option>
-                <option>Jaune</option>
-                <option>Violet</option>
-              </select>
-            </div>
-            <br/>
-            <br/>
-            <div>
-              <input type="checkbox" id="inputFragile" name="Fragile" onChange={this.handleChange} />
-              <label for="Fragile">Fragile</label>
-            </div>
-          </div>
-        </div>
-        <br />
-        <div class="form-group">
-          <label>Destination</label>
-          <br/>
-          <select value={this.state.inputDestination} onChange={this.handleChange} id="inputDestination">
-            {this.state.text2}
-          </select>
-        </div>
-        <br />
-        <div class="form-group">
-          <div class="wrap-input100 validate-input">
-            <input class="input100" type="text" name="name" placeholder="Origine" id="origine" value={this.state.origine} onChange={this.handleChange} />
-            <div style={{ fontSize: 12, color: "red" }}>
-              {this.state.origineError}
+      <div>
+        <TemplateMenu nom="ListeSalles" />
+        <form onSubmit={this.handleSubmit}>
+          <br />
+          <div className="row">
+            <img className="col-6" src={cartonAjout} alt="Lien select carton (Image absente)"></img>
+            <div className="col-6">
+              <div className="col-">
+                <label>Couleur</label>
+                <br />
+                <select id="selectCouleur" width="100%" onChange={this.handleChange}>
+                  <option></option>
+                  <option>Rouge</option>
+                  <option>Bleu</option>
+                  <option>Vert</option>
+                  <option>Jaune</option>
+                  <option>Violet</option>
+                </select>
+              </div>
+              <br />
+              <br />
+              <div>
+                <input type="checkbox" id="inputFragile" name="Fragile" onChange={this.handleChange} />
+                <label for="Fragile">Fragile</label>
+              </div>
             </div>
           </div>
-        </div>
-        <br />
-        <div>
-          <div class="row">
-            <input type="number" className="form-control col4" id="inputLargeur" value={this.state.largeur} placeholder="Largeur Carton (cm)" onChange={this.handleChange} ></input>
-            <div style={{ fontSize: 12, color: "red" }}>
-              {this.state.largeurError}
-            </div>
-            <input type="number" className="form-control col-4" id="inputLongueur" placeholder="Longueur Carton (cm)" value={this.state.longueur} onChange={this.handleChange}></input>
-            <div style={{ fontSize: 12, color: "red" }}>
-              {this.state.longueurError}
-            </div>
-            <input type="number" className="form-control col-4" id="inputHauteur" placeholder="Hauteur Carton (cm)" value={this.state.hauteur} onChange={this.handleChange}></input>
-            <div style={{ fontSize: 12, color: "red" }}>
-              {this.state.hauteurError}
+          <br />
+          <div class="form-group">
+            <label>Destination</label>
+            <br />
+            <select value={this.state.inputDestination} onChange={this.handleChange} id="inputDestination">
+              {this.state.text2}
+            </select>
+          </div>
+          <br />
+          <div class="form-group">
+            <div class="wrap-input100 validate-input">
+              <input class="input100" type="text" name="name" placeholder="Origine" id="origine" value={this.state.origine} onChange={this.handleChange} />
+              <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.origineError}
+              </div>
             </div>
           </div>
-        </div>
-        <br />
-        <div>
-          {this.state.text}
-        </div>
-        <br />
-        <input type="submit" value="Créer" />
-      </form>
+          <br />
+          <div>
+            <div class="row">
+              <input type="number" className="form-control col4" id="inputLargeur" value={this.state.largeur} placeholder="Largeur Carton (cm)" onChange={this.handleChange} ></input>
+              <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.largeurError}
+              </div>
+              <input type="number" className="form-control col-4" id="inputLongueur" placeholder="Longueur Carton (cm)" value={this.state.longueur} onChange={this.handleChange}></input>
+              <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.longueurError}
+              </div>
+              <input type="number" className="form-control col-4" id="inputHauteur" placeholder="Hauteur Carton (cm)" value={this.state.hauteur} onChange={this.handleChange}></input>
+              <div style={{ fontSize: 12, color: "red" }}>
+                {this.state.hauteurError}
+              </div>
+            </div>
+          </div>
+          <br />
+          <div>
+            {this.state.text}
+          </div>
+          <br />
+          <input type="submit" value="Créer" />
+        </form>
+      </div>
+
     )
   }
 }
