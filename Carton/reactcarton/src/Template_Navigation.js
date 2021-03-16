@@ -1,5 +1,5 @@
 import React from 'react'
-
+import retour from './Image/chevron_left.png';
 import {Link} from 'react-router-dom'
 import './ListeCartons.css';
 
@@ -9,10 +9,10 @@ class TemplateNavigation extends React.Component {
       return (
         <ul class="pager">
             <Link to={this.props.nom}>
-                <li class="previous"><input type="button" value="<- Précédent"/></li>
-
+                <img className="retour" src={retour} width="15%"  alt="Lien modif de carton"></img>
+                
             </Link>
-            <li><a href="/ListeSalles">Pièces</a></li>
+   
         </ul>
      
       );
