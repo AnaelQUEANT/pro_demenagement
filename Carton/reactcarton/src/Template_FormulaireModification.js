@@ -32,9 +32,10 @@ class Template_FormulaireModification extends React.Component {
   }
 
   
-  getArgument(elem) {
-    var param = elem.split('=');
-    return param[1];
+  componentDidMount(){
+    if(this.props.fragile == 1){
+      
+    }
   }
 
   handleChange = event => {
@@ -105,8 +106,8 @@ class Template_FormulaireModification extends React.Component {
             "largeur": this.state.inputLargeur,
             "longueur": this.state.inputLongueur,
             "hauteur": this.state.inputHauteur,
-            "fragile": elementCheck,
-            "piece": this.state.get
+            "piece": this.state.get,
+            "fragile": elementCheck
           })
 
         })
@@ -162,7 +163,7 @@ class Template_FormulaireModification extends React.Component {
               <br />
               <br />
               <div>
-                <input type="checkbox" id="inputFragile" value={this.state.fragile} name="Fragile" onChange={this.handleChange} />
+                <input type="checkbox" id="inputFragile" value={this.state.fragile} name="Fragile" onChange={this.handleChange}  />
                 <label for="Fragile">Fragile</label>
               </div>
             </div>
@@ -170,7 +171,7 @@ class Template_FormulaireModification extends React.Component {
           <br />
           <div class="form-group">
             <div class=" ">
-              <input class="input100 form-control" type="text" name="name" placeholder="Destination" id="inputDestination" value={this.state.inputDestination} onChange={this.handleChange} />
+              <input class="input100 form-control" type="text" name="name" disabled="disabled" placeholder="Destination" id="inputDestination" value={this.state.inputDestination} onChange={this.handleChange} />
               <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.destinationError}
               </div>
