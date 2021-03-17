@@ -161,7 +161,8 @@ app.post('/ajoutCarton', async (req, res) => {
 
 app.put('/UpdateCarton/:id', async (req, res) => {
     const id = req.params.id;
-    setupConnection();
+    console.log("matttou : " + req.body.piece);
+    let connection = setupConnection();
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");

@@ -27,7 +27,7 @@ class Template_FormulaireModification extends React.Component {
       inputFile: '',
       idDestination: '',
       valID: '',
-      get: props.location.search
+      get: this.props.leID
     };
   }
 
@@ -60,7 +60,7 @@ class Template_FormulaireModification extends React.Component {
       origineError = "L'origine est vide";
     }
     if (!this.state.inputDestination) {
-      origineError = "La destination est vide";
+      destinationError = "La destination est vide";
     }
     this.setState({ largeurError });
     this.setState({ longueurError });
@@ -88,14 +88,14 @@ class Template_FormulaireModification extends React.Component {
         }
       }.bind(this));
       try {
-        let monAPI = "http://localhost:16500/UpdateCarton/" + this.getArgument(this.state.get);
+        let monAPI = "http://localhost:16500/UpdateCarton/" + this.state.get;
         if (elementCheck) {
           elementCheck = 1;
         } else {
           elementCheck = 0;
         }
+        console.log("Wesh alors : " + this.state.get);
         console.log(this.state.origine + this.state.selectCouleur + this.state.inputLargeur + this.state.inputLongueur + this.state.inputHauteur + elementCheck + this.state.idDestination);
-
         fetch(monAPI, {
           method: 'PUT',
           headers: { 'content-type': 'application/json' },
@@ -106,7 +106,7 @@ class Template_FormulaireModification extends React.Component {
             "longueur": this.state.inputLongueur,
             "hauteur": this.state.inputHauteur,
             "fragile": elementCheck,
-            "piece": this.state.idDestination
+            "piece": this.state.get
           })
 
         })
@@ -136,7 +136,7 @@ class Template_FormulaireModification extends React.Component {
       }.bind(this));
       //this.setState(initialState);
       */
-      this.props.history.push('/ListeSalles');
+      //this.props.history.push('/ListeSalles');
     }
   };
   render() {
