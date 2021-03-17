@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Middleware 
 
-function setupConnection(){
+function setupConnection() {
     let connection = mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
@@ -25,15 +25,15 @@ app.get('/lesPieces/:idSalle', (req, res) => {
     const id = req.params.idSalle;
     let connection = setupConnection();
     connection.connect((err) => {
-        if(err) throw err;
+        if (err) throw err;
 
         let requete = 'SELECT Piece.Piece_nom, Piece.Piece_id, COUNT(Carton.Carton_id) as nbCarton ';
 
         requete += 'from Piece left JOIN Carton on Piece.Piece_id = Carton.Piece_id ';
         requete += 'WHERE Piece.Logement_id = ' + id + ' ';
         requete += 'GROUP BY Piece.Piece_id;'
-        connection.query(requete, function (error, results, fields){
-            if(error) throw error;
+        connection.query(requete, function (error, results, fields) {
+            if (error) throw error;
             res.send(results);
         })
         connection.end();
@@ -42,14 +42,14 @@ app.get('/lesPieces/:idSalle', (req, res) => {
 
 app.get('/lesCartons/:idSalle', (req, res) => {
     const id = req.params.idSalle;
-        let connection = setupConnection();
-        connection.connect((err) => {
-        if(err) throw err;
+    let connection = setupConnection();
+    connection.connect((err) => {
+        if (err) throw err;
         let requete = 'SELECT * from Carton ';
         requete += 'left join Piece using (Piece_id) ';
         requete += 'where Carton.Piece_id = ' + id;
-        connection.query(requete, function (error, results, fields){
-            if(error) throw error;
+        connection.query(requete, function (error, results, fields) {
+            if (error) throw error;
             res.send(results);
         })
         connection.end();
@@ -60,10 +60,10 @@ app.get('/lesObjets/', (req, res) => {
     const id = req.params.idSalle;
     let connection = setupConnection();
     connection.connect((err) => {
-        if(err) throw err;
+        if (err) throw err;
         let requete = 'SELECT * from Equipement_Carton ';
-        connection.query(requete, function (error, results, fields){
-            if(error) throw error;
+        connection.query(requete, function (error, results, fields) {
+            if (error) throw error;
             res.send(results);
         })
         connection.end();
@@ -74,11 +74,11 @@ app.get('/infoCarton/:id', (req, res) => {
     const id = req.params.id;
     let connection = setupConnection();
     connection.connect((err) => {
-        if(err) throw err;
+        if (err) throw err;
         let requete = 'SELECT * from Carton ';
         requete += 'where Carton.Carton_id = ' + id;
-        connection.query(requete, function (error, results, fields){
-            if(error) throw error;
+        connection.query(requete, function (error, results, fields) {
+            if (error) throw error;
             res.send(results);
         })
         connection.end();
@@ -88,10 +88,10 @@ app.get('/infoCarton/:id', (req, res) => {
 app.get('/getIDCarton/', (req, res) => {
     let connection = setupConnection();
     connection.connect((err) => {
-        if(err) throw err;
+        if (err) throw err;
         let requete = 'select Carton_id from Carton order by Carton_id desc LIMIT 1';
-        connection.query(requete, function (error, results, fields){
-            if(error) throw error;
+        connection.query(requete, function (error, results, fields) {
+            if (error) throw error;
             res.send(results);
         })
         connection.end();
@@ -102,63 +102,54 @@ app.get('/objetCarton/:id', (req, res) => {
     const id = req.params.id;
     let connection = setupConnection();
     connection.connect((err) => {
-        if(err) throw err;
+        if (err) throw err;
         let requete = 'SELECT * from Carton ';
         requete += 'left join Piece using(Piece_id) ';
         requete += 'left join Carton_has_Equipement using(Carton_id) ';
         requete += 'left join Equipement_Carton using(Equipement_Carton_id) ';
         requete += 'where Carton.Carton_id = ' + id;
-        connection.query(requete, function (error, results, fields){
-            if(error) throw error;
+        connection.query(requete, function (error, results, fields) {
+            if (error) throw error;
             res.send(results);
         })
         connection.end();
     })
 })
 
-app.post('/ajoutEquipementCarton', async (req, res) =>{
-
+app.post('/ajoutEquipementCarton', async (req, res) => {
     const idObjet = req.body.idObjet;
-    
-
     if (!idObjet) {
         res.send("Il manque des arguments");
     }
-
-    
     let connection = setupConnection();
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");
-        let idCarton;
-    console.log("prout");
-    fetch('http://localhost:16500/getIDCarton/')
-    .then(response => response.json())
-    .then(response => {
-        console.log("MAIIIIIIIIIIS : " + response[0].Carton_id);
-         
-    connection.query('INSERT into Carton_has_Equipement values ('+ response.id + ', ' + idObjet + ')', function (error, results, fields) {
+        console.log("prout");
+        fetch('http://localhost:16500/getIDCarton/')
+            .then(response => response.json())
+            .then(response => {
+                let connection2 = setupConnection();
+                console.log("Id Carton" + response[0].Carton_id);
+                connection2.query('INSERT into Carton_has_Equipement values (' + response[0].Carton_id + ', ' + idObjet + ')', function (error, results, fields) {
                     if (error) throw error;
                     res.send("Ajout effecté");
+                    connection2.end();
                 })
-    })
-        
+            })
+
         connection.end();
     })
-    
-    
-    
-    
-   
-    
+
+
+
+
+
+
 
 })
 
-
-
-
-
-app.post('/ajoutCarton', async (req, res) =>{
+app.post('/ajoutCarton', async (req, res) => {
     const origine = req.body.origine;
     const couleur = req.body.couleur;
     const largeur = req.body.largeur;
@@ -172,9 +163,9 @@ app.post('/ajoutCarton', async (req, res) =>{
     }
 
     let connection = setupConnection();
-    connection.query('INSERT into Carton values ( null, null, null, null, "'+ origine +'", "'+ couleur +'", '+ largeur +', '+ hauteur +', ' + longueur + ', ' + fragile + ', ' + piece + ', null)', function (error, results, fields) {
-            if (error) throw error;
-            res.send("Ajout effecté");
+    connection.query('INSERT into Carton values ( null, null, null, null, "' + origine + '", "' + couleur + '", ' + largeur + ', ' + hauteur + ', ' + longueur + ', ' + fragile + ', ' + piece + ', null)', function (error, results, fields) {
+        if (error) throw error;
+        res.send("Ajout effecté");
     })
     connection.end();
 })
@@ -187,7 +178,7 @@ app.listen(16500, () => {
 /*
 * Copyright 2021
 * Rémi RAGOT & Anaël QUEANT
-* 
+*
 MMWNNWMMMMMMMMMMMMMMMMMMMWWWWWWNWMMMMMMMMMMMMMWNWWWWWNXWWWWWWWWWWWWWWMWWWWMMMMMMMMMMMMMMMWNWWWWWK0KXWWMNXXNNWMMWWWNNMMMMMMMMM
 MMWXKXWMMMMMMMMMMMMMMMMMMWWWWWWNWMWMMMMMMMMMMMWWMWNWWWWMMWWNNNNNNNNNNNNNNXXWWWWMMMMMMMMMMWNWNNWWK0XNWWWNXXNNWMWWWWNWMMMMMMMMM
 MMWXXNWWMMMMMMMMMMMMMMMMMWWWWMMMWMWWMMMMMWWWMMWNNNNNNNWMWWNXXXXXXNXKXKKXK00K00XWWWWWMMWWWNXNNXK000NWWWWNXNNWWMWWWWNWMMMMMWWMM
