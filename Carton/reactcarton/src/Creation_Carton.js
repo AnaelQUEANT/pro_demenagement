@@ -234,28 +234,38 @@ class CreationCarton extends React.Component {
           </div>
           <br />
           <div class="form-group">
-            <div class="wrap-input100 validate-input">
-              <input class="input100" type="text" name="name" placeholder="Origine" id="origine" value={this.state.origine} onChange={this.handleChange} />
+            <div class=" ">
+              <input class="input100 form-control" type="text" name="name" placeholder="Origine" id="origine" value={this.state.origine} onChange={this.handleChange} />
               <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.origineError}
               </div>
             </div>
           </div>
           <br />
-          <div>
-            <div class="row">
-              <input type="number" className="form-control col4" id="inputLargeur" value={this.state.largeur} placeholder="Largeur Carton (cm)" onChange={this.handleChange} ></input>
-              <div style={{ fontSize: 12, color: "red" }}>
-                {this.state.largeurError}
+          <div >
+            <div className="row">
+              <div className="col-4 ">
+                <input type="number" className="form-control input101" id="inputLargeur" value={this.state.largeur} placeholder="Largeur" onChange={this.handleChange} ></input>
+                <div style={{ fontSize: 12, color: "red" }}>
+                  {this.state.largeurError}
+                </div>
               </div>
-              <input type="number" className="form-control col-4" id="inputLongueur" placeholder="Longueur Carton (cm)" value={this.state.longueur} onChange={this.handleChange}></input>
-              <div style={{ fontSize: 12, color: "red" }}>
-                {this.state.longueurError}
+
+              <div className="col-4"> 
+                <input type="number" className="form-control input101" id="inputLongueur" placeholder="Longueur" value={this.state.longueur} onChange={this.handleChange}></input>
+                <div style={{ fontSize: 12, color: "red" }}>
+                  {this.state.longueurError}
+                </div>
               </div>
-              <input type="number" className="form-control col-4" id="inputHauteur" placeholder="Hauteur Carton (cm)" value={this.state.hauteur} onChange={this.handleChange}></input>
-              <div style={{ fontSize: 12, color: "red" }}>
-                {this.state.hauteurError}
+
+              <div className="col-4">
+                <input type="number" className="form-control input101" id="inputHauteur" placeholder="Hauteur" value={this.state.hauteur} onChange={this.handleChange}></input>
+                <div style={{ fontSize: 12, color: "red" }}>
+                  {this.state.hauteurError}
+                </div>
+
               </div>
+
             </div>
           </div>
           <br />

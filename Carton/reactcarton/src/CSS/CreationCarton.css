@@ -19,6 +19,18 @@
     color: #8f8fa1;
     line-height: 1.2;
   }
+
+  .input101 {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-radius: 31px;
+    font-family: Ubuntu-Bold;
+    font-size: 10px;
+    color: #8f8fa1;
+    line-height: 1.2;
+  }
   
   
   /*---------------------------------------------*/
@@ -27,6 +39,15 @@
     padding: 0 35px 0 35px;
   }
   
+  input.input101 {
+    height: 62px;
+    padding: 0 35px 0 35px;
+  }
+
+  textarea.input101 {
+    min-height: 169px;
+    padding: 19px 35px 0 35px;
+  }
   
   textarea.input100 {
     min-height: 169px;
