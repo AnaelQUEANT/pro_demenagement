@@ -159,6 +159,22 @@ app.post('/ajoutCarton', async (req, res) => {
     connection.end();
 })
 
+app.put('/UpdateCarton/:id', async (req, res) => {
+    const id = req.params.id;
+    console.log("matttou : " + req.body.piece);
+    let connection = setupConnection();
+    connection.connect((err) => {
+        if (err) throw err;
+        console.log("Connecté !");
+        connection.query('UPDATE Carton set Carton_origine = "'+ req.body.origine +'", Carton_couleur = "'+ req.body.couleur +'", Carton_largeur = "'+ req.body.largeur +'", Carton_longueur = "'+ req.body.longueur +'", Carton_hauteur = "'+ req.body.hauteur +'", Piece_id = "' + req.body.piece + '", Carton_fragile = "' + req.body.fragile + '" where Carton_id = ' + id, function (error, results, fields) {
+            if (error) throw error;
+            res.send("Modification effecté");
+            
+        })
+        connection.end();
+    })
+})
+
 
 app.listen(16500, () => {
     console.log('Serveur à l écoute')

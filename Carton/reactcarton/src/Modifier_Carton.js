@@ -22,7 +22,8 @@ class ModifierCarton extends React.Component {
   }
 
   componentDidMount() {
-
+    let idCarton = this.getArgument(this.state.get);
+    console.log("HIBOOUUUUUU : " + idCarton);
     let monAPI = "http://localhost:16500/objetCarton/" + this.getArgument(this.state.get);
     console.log("coucou " + monAPI);
     fetch(monAPI)
@@ -45,7 +46,7 @@ class ModifierCarton extends React.Component {
         }
         console.log(this.state.tab);
         var listItems = this.state.tab.map(e => (
-          <TemplateFormulaireModif photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} largeur={e.largeur} longueur={e.longueur} hauteur={e.hauteur} fragile={e.fragile} idBouton={e.id} couleur={e.couleur} />
+          <TemplateFormulaireModif leID={idCarton} photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} largeur={e.largeur} longueur={e.longueur} hauteur={e.hauteur} fragile={e.fragile} idBouton={e.id} couleur={e.couleur} />
 
         ));
         this.setState({ text: listItems })
