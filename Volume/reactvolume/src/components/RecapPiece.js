@@ -29,13 +29,11 @@ export const RecapPiece = (props) => {
   useEffect(() => {
   }, []);
 
-
   const handleClickPlus = ((mobi) => {
     const newCompteur = [...selection];
       newCompteur[mobi.Mobilier_id] = newCompteur[mobi.Mobilier_id] + 1;
       setSelection(newCompteur)
   })
-
   const handleClickMoins = ((mobi) => {
     if(selection[mobi.Mobilier_id] > 1) {
       const newCompteur = [...selection];
@@ -43,7 +41,6 @@ export const RecapPiece = (props) => {
       setSelection(newCompteur)
     }
   })
-
   const handleClickDel = ((mobi) => {
     if(selection[mobi.Mobilier_id] > 0) {
       const newCompteur = [...selection];
@@ -51,7 +48,6 @@ export const RecapPiece = (props) => {
       setSelection(newCompteur)
     }
   })
-
 
   const SalleListe = salles.map((lesSalles, i) => {
       

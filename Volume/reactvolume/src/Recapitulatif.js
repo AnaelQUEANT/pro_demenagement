@@ -15,14 +15,10 @@ function Recapitulatif(props) {
         </Link>
         <h1> Récapitulatif </h1>
       </div>
-
-      <div className="recap">
-        <RecapPiece select={props.location.state} />
-      </div>
-      <div className="camion">
-        <AvisCamion />
-      </div>
       
+      <RecapPiece select={props.location.state} />
+      
+      <AvisCamion volume={props.location.search.slice(1)}/>
     </div>
   );
 }

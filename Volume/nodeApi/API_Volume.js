@@ -100,14 +100,14 @@ app.get('/typemobilier/:nomPiece', (req, res) => {
         connection.end();
     })
 })
-/*
-app.get('/cartonPiece/:idPiece', (req, res) => {
-    const id = req.params.idPiece;
-    setupConnection();
+
+app.get('/camion', (req, res) => {
+    const nom = req.params.nomPiece;
+    let connection = setupConnection();
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");
-        connection.query('SELECT * from Mobilier where Piece_id='+id, function (error, results, fields) {
+        connection.query('SELECT * from Camion', function (error, results, fields) {
             if (error) throw error;
             res.send(results);
             
@@ -115,23 +115,7 @@ app.get('/cartonPiece/:idPiece', (req, res) => {
         connection.end();
     })
 })
-*/
 
 app.listen(16501, () => {
     console.log('Serveur à l écoute')
 })
-
-/*app.get('/affichette/:idAffichette', (req, res) => {
-    const id = req.params.idAffichette;
-    setupConnection();
-    connection.connect((err) => {
-        if (err) throw err;
-        console.log("Connecté !");
-        connection.query('SELECT * from Piece where Piece_id='+id, function (error, results, fields) {
-            if (error) throw error;
-            res.send(results);
-            
-        })
-        connection.end();
-    })
-})*/

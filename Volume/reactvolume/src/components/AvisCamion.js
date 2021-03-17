@@ -1,14 +1,42 @@
-//import { useEffect, useState} from 'react';
+import { useEffect} from 'react';
 import './AvisCamion.css';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
+import { ReactComponent as DanaLogo } from '../img/UBO_Mascotte_Dana.svg';
+// import { getCamion } from '../services/camion'
 
 export const AvisCamion = (props) =>{
 
+    //TODO Faire un trigger qui remplit une colonne volume dans la table Camion par rapport aux 3 autres colonnes
+
+    // let leCamion = null;
+    useEffect(() => {
+        // Execute une action au ComponentDidMount
+        const getDatas = async () => {
+        //   const camion = await getCamion();
+        //   console.log(camion)
+        //   let listeCamion = new Array(10);
+        //   camion.forEach(c => {
+        //         let volume = c.Camion_largeur * c.Camion_longueur * c.Camion_hauteur;
+        //         volume = Math.round (volume * 100) / 100;
+        //         if (volume > props.volume) {
+        //             listeCamion[c.Camion_id] = c;
+        //         }
+        //   });
+        //   listeCamion.sort(function(a,b) { return a-b;})
+
+        //   leCamion = listeCamion[0];
+        }
+        getDatas()
+        // Execute une action au ComponentDidUnMount
+        // return
+        
+      }, [])
+
     return (
-        <div className="footer">
+        <div className="recommendation">
             <div className="container-recommendation">
                 <div className="header-recommendation">
-                    <span>logo ici</span>
+                    <DanaLogo width="32"/>
                     <h3 className="titre-conseil">Dana te conseille ...</h3>
                 </div>
                 
