@@ -125,24 +125,12 @@ app.post('/ajoutEquipementCarton', async (req, res) => {
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");
-<<<<<<< Updated upstream
-        console.log("prout");
         fetch('http://localhost:16500/getIDCarton/')
             .then(response => response.json())
             .then(response => {
                 let connection2 = setupConnection();
                 console.log("Id Carton" + response[0].Carton_id);
                 connection2.query('INSERT into Carton_has_Equipement values (' + response[0].Carton_id + ', ' + idObjet + ')', function (error, results, fields) {
-=======
-        let idCarton;
-    console.log("prout");
-    fetch('http://localhost:16500/getIDCarton/')
-    .then(response => response.json())
-    .then(response => {
-        console.log("MAIIIIIIIIIIS : " + response[0].Carton_id);
-         
-    connection.query('INSERT into Carton_has_Equipement values ('+ response[0].Carton_id + ', ' + idObjet + ')', function (error, results, fields) {
->>>>>>> Stashed changes
                     if (error) throw error;
                     res.send("Ajout effecté");
                     connection2.end();
