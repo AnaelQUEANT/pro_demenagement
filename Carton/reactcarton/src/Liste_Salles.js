@@ -44,7 +44,9 @@ class ListeSalles extends React.Component {
   render() {
     return (
       <div>
-        <TemplateMenu nom="/" />
+        <div>
+          <TemplateMenu nom="/" />
+        </div>
         <div className="row laDivDesSalles">
           <div className="col-4 flex-column btn_carton_virtuel" >
             <Link to="CreationCarton">
@@ -56,7 +58,6 @@ class ListeSalles extends React.Component {
                 */}
             </Link>
           </div>
-
           {this.state.text}
         </div>
         <div className="laDivAffichette">

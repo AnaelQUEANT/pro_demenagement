@@ -19,10 +19,14 @@
 }
 
 .liste-info{
-    
     align-content: center;
     align-items: center;
     margin-left: 10%;
+    color:black;
+}
+
+a{
+    text-decoration:none; 
 }
 
 .test{
