@@ -10,17 +10,17 @@ class Template_FormulaireModification extends React.Component {
       text2: '',
       tab2: [],
       leTest: 'try',
-      inputLongueur: '',
-      inputLargeur: '',
-      inputHauteur: '',
-      origine: '',
+      inputLongueur: this.props.longueur,
+      inputLargeur: this.props.largeur,
+      inputHauteur: this.props.hauteur,
+      origine: this.props.origine,
       nameError: '',
       hauteurError: '',
       largeurError: '',
       longueurError: '',
       origineError: '',
       inputFragile: '',
-      inputDestination: '',
+      inputDestination: this.props.destination,
       selectCouleur: '',
       inputFile: '',
       idDestination: '',
@@ -57,33 +57,33 @@ class Template_FormulaireModification extends React.Component {
         <br />
         <div>
           <div>
-            <input type="checkbox" id="Fragile" name="Fragile" value={this.props.fragile} />
+            <input type="checkbox" id="Fragile" name="Fragile" value={this.state.fragile} />
             <label for="Fragile">Fragile</label>
           </div>
         </div>
         <br />
         <div class="form-group">
-          <input type="text" class="form-control" id="formGroupExampleInput" value={this.props.destination} placeholder="Destination" onChange={this.handleChange}></input>
+          <input type="text" class="form-control" id="destination" value={this.state.inputDestination} placeholder="Destination" onChange={this.handleChange}></input>
         </div>
         <br />
         <div class="form-group">
-          <input type="text" class="form-control" id="origine" value={this.props.origine} onChange={this.handleChange} placeholder="Origine" />
+          <input type="text" class="form-control" id="origine" value={this.state.origine} onChange={this.handleChange} placeholder="Origine" />
         </div>
         <br />
         <div>
           <div>
             <label>Largeur</label>
-            <input type="number" class="form-control" id="inputLargeur" value={this.props.largeur} onChange={this.handleChange} placeholder={this.props.largeur}></input>
+            <input type="number" class="form-control" id="inputLargeur" value={this.state.inputLargeur} onChange={this.handleChange} placeholder="Largueur"></input>
           </div>
           <br />
           <div>
             <label>Longueur</label>
-            <input type="text" class="form-control" id="inputLongueur" value={this.props.longueur} onChange={this.handleChange} placeholder={this.props.longueur}></input>
+            <input type="text" class="form-control" id="inputLongueur" value={this.state.inputLongueur} onChange={this.handleChange} placeholder="Longueur"></input>
           </div>
           <br />
           <div>
             <label>Hauteur</label>
-            <input type="text" class="form-control" id="inputHauteur" value={this.props.hauteur} onChange={this.handleChange} placeholder={this.props.hauteur} ></input>
+            <input type="text" class="form-control" id="inputHauteur" value={this.state.inputHauteur} onChange={this.handleChange} placeholder="Hauteur"></input>
           </div>
         </div>
         <br />
