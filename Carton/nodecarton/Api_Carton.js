@@ -10,7 +10,6 @@ app.use(cors());
 app.use(express.json());
 
 // Middleware 
-
 function setupConnection() {
     let connection = mysql.createConnection({
         host: process.env.DB_HOST,
@@ -26,9 +25,7 @@ app.get('/lesPieces/:idSalle', (req, res) => {
     let connection = setupConnection();
     connection.connect((err) => {
         if (err) throw err;
-
         let requete = 'SELECT Piece.Piece_nom, Piece.Piece_id, COUNT(Carton.Carton_id) as nbCarton ';
-
         requete += 'from Piece left JOIN Carton on Piece.Piece_id = Carton.Piece_id ';
         requete += 'WHERE Piece.Logement_id = ' + id + ' ';
         requete += 'GROUP BY Piece.Piece_id;'
@@ -139,13 +136,6 @@ app.post('/ajoutEquipementCarton', async (req, res) => {
 
         connection.end();
     })
-
-
-
-
-
-
-
 })
 
 app.post('/ajoutCarton', async (req, res) => {
@@ -164,7 +154,7 @@ app.post('/ajoutCarton', async (req, res) => {
     let connection = setupConnection();
     connection.query('INSERT into Carton values ( null, null, null, null, "' + origine + '", "' + couleur + '", ' + largeur + ', ' + hauteur + ', ' + longueur + ', ' + fragile + ', ' + piece + ', null)', function (error, results, fields) {
         if (error) throw error;
-        res.send("Ajout effecté");
+        res.send("Ajout effectué");
     })
     connection.end();
 })

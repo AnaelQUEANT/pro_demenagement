@@ -9,8 +9,6 @@ import CreationCarton from './Creation_Carton.js'
 import ListeCartons from './Liste_Cartons.js'
 import ModifierCarton from './Modifier_Carton.js'
 import MenuCarton from './Menu_Carton.js'
-
-
 class App extends React.Component {
   render() {
     return (
