@@ -12,7 +12,7 @@ class ListeSalles extends React.Component {
       value: '',
       text: '',
       tab: [],
-      nav :''
+      nav: ''
     };
   }
 
@@ -37,7 +37,7 @@ class ListeSalles extends React.Component {
         ));
         this.setState({ text: listItems })
 
-        
+
       });
   }
 

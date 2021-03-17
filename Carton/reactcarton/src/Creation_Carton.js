@@ -3,7 +3,7 @@ import TemplateListeObjet from './Template_ListeEquipementCarton.js'
 import TemplateListeDeroulante from './Template_ListeDeroulante.js'
 import TemplateMenu from './Template_Navigation.js'
 
-import './CreationCarton.css';
+import './CSS/CreationCarton.css';
 import cartonAjout from './Image/AjoutImage.PNG';
 class CreationCarton extends React.Component {
   constructor(props) {
@@ -79,7 +79,7 @@ class CreationCarton extends React.Component {
       });
     return true;
   }
-  
+
   handleChange = event => {
     console.log(event.target.value);
     this.setState({ [event.target.id]: event.target.value });
@@ -159,7 +159,7 @@ class CreationCarton extends React.Component {
         console.log("ICCCCCCCCCI : " + cell.id + " ettt " + this.state.valID);
         if (elementTrue) {
           console.log('KOH LANTA ' + this.state.valID);
-  
+
           let monAPI = "http://localhost:16500/ajoutEquipementCarton";
           fetch(monAPI, {
             method: 'POST',
