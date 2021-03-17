@@ -10,7 +10,7 @@ import Affichette from './Affichette.js'
 import Logement from './Logement.js'
 import AffichetteLogement from './AffichetteLogement.js'
 import Etiquette from './Etiquette.js'
-import Test from './Test.js'
+import Test from './QRgenerator.js'
 
 class App extends React.Component {
 
