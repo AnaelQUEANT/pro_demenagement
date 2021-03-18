@@ -228,9 +228,9 @@ class Template_FormulaireModification extends React.Component {
           </div>
           <br />
           <div className="row">
-          <input type="submit" className="col-2 buttonStyle" value="Modifier" />
+          <input type="submit" className="col-2 btn-ok btn" value="Modifier" />
           <Link to="ListeSalles">
-            <input type="button" className="col-2 buttonStyle" value="Annuler"/>
+            <input type="button" className="col-2 btn-ok btn " value="Annuler"/>
           </Link>
           </div>
           

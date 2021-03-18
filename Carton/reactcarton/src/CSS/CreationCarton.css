@@ -54,19 +54,20 @@
     padding: 19px 35px 0 35px;
   }
 
-  .buttonStyle {
-    display: block;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    background-color: var(--light);
-    width: 400px;
-    height: 70px;
-    border-radius: 30px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    background-size: 100% 100%;
-    box-shadow: 0 0 0 7px var(--light) inset;
-    margin-bottom: 15px;
-    background-color: red;
-  }
+  .recommendation .btn {
+    position: relative;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px 0px;
+}
+.btn-ok{
+    width: 80%;
+    font-size: 1.2em;
+    background-color: #FF7276;
+    color: white;  
+}
+.btn-non {
+    width: 50%;
+    font-size: 1.1em;
+    color: rgb(140, 140, 140);
+}

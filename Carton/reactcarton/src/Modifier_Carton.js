@@ -22,8 +22,8 @@ class ModifierCarton extends React.Component {
   }
 
   componentDidMount() {
-    let idCarton = this.getArgument(this.state.get);
-    console.log("HIBOOUUUUUU : " + idCarton);
+    let idCarton;
+    
     let monAPI = "http://localhost:16500/objetCarton/" + this.getArgument(this.state.get);
     console.log("coucou " + monAPI);
     fetch(monAPI)
@@ -38,6 +38,8 @@ class ModifierCarton extends React.Component {
         console.log("youhou " + response.length);
         for (var i = 0; i < response.length; i++) {
           if (non == 2) {
+            idCarton = response[i].Piece_id;
+      
             test[i] = { photo: response[i].Carton_photo, id: response[i].Carton_id, origine: response[i].Carton_origine, destination: response[i].Piece_nom, largeur: response[i].Carton_largeur, longueur: response[i].Carton_longueur, hauteur: response[i].Carton_hauteur, fragile: response[i].Carton_fragile, couleur: response[i].Carton_couleur };
           }
           non = 1;
@@ -50,6 +52,7 @@ class ModifierCarton extends React.Component {
           <TemplateListeObjet nom={e.nom} id={e.id} />
 
         ));
+        console.log("HIBOOUUUUUU : " + idCarton);
         var listItems = this.state.tab.map(e => (
           <TemplateFormulaireModif text2={listItems2} leID={idCarton} photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} largeur={e.largeur} longueur={e.longueur} hauteur={e.hauteur} fragile={e.fragile} idBouton={e.id} couleur={e.couleur} />
 

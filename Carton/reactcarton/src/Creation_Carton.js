@@ -229,7 +229,7 @@ class CreationCarton extends React.Component {
                 </div>
               </div>
 
-              <div className="col-4"> 
+              <div className="col-4">
                 <input type="number" className="form-control input101" id="inputLongueur" placeholder="Longueur" value={this.state.longueur} onChange={this.handleChange}></input>
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.longueurError}
@@ -251,11 +251,11 @@ class CreationCarton extends React.Component {
             {this.state.text}
           </table>
           <br />
-          <div className="row">
-          <input type="submit" className="col-2 buttonStyle" value="Créer" />
-          <Link to="ListeSalles">
-            <input type="button" className="col-2 buttonStyle" value="Annuler"/>
-          </Link>
+          <div className="row ">
+            <input type="submit" className="col-3 btn-ok btn" value="Créer" />
+            <Link to="ListeSalles" className="col-3">
+              <input type="button" className=" btn-non btn" value="Annuler" />
+            </Link>
           </div>
         </form>
       </div>
