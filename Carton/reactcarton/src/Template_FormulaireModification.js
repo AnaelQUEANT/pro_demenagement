@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 class Template_FormulaireModification extends React.Component {
   constructor(props) {
     super(props);
-    
-    if(this.props.fragile == 1){
+
+    if (this.props.fragile == 1) {
       this.state = {
         value: '',
         text: '',
@@ -32,12 +32,12 @@ class Template_FormulaireModification extends React.Component {
         valID: '',
         get: this.props.leID
       };
-    }else{
+    } else {
       this.state = {
         value: '',
         text: '',
         tab: [],
-        text2: '',
+        text2: this.props.text2,
         tab2: [],
         leTest: 'try',
         inputLongueur: this.props.longueur,
@@ -61,9 +61,9 @@ class Template_FormulaireModification extends React.Component {
     }
   }
 
-  
-  componentDidMount(){
-    if(this.props.fragile == 1){
+
+  componentDidMount() {
+    if (this.props.fragile == 1) {
       document.getElementById("inputFragile").checked = true;
     }
   }
@@ -169,7 +169,7 @@ class Template_FormulaireModification extends React.Component {
               <br />
               <br />
               <div>
-                <input type="checkbox" id="inputFragile" name="Fragile" onChange={this.handleChange}  />
+                <input type="checkbox" id="inputFragile" name="Fragile" onChange={this.handleChange} />
                 <label for="Fragile">Fragile</label>
               </div>
             </div>
@@ -177,7 +177,7 @@ class Template_FormulaireModification extends React.Component {
           <br />
           <div class="form-group">
             <div class=" ">
-            <label>Destination</label>
+              <label>Destination</label>
               <input class="input100 form-control" type="text" name="name" disabled="disabled" placeholder="Destination" id="inputDestination" value={this.state.inputDestination} onChange={this.handleChange} />
               <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.destinationError}
@@ -187,7 +187,7 @@ class Template_FormulaireModification extends React.Component {
           <br />
           <div class="form-group">
             <div class=" ">
-            <label>Origine</label>
+              <label>Origine</label>
               <input class="input100 form-control" type="text" name="name" placeholder="Origine" id="origine" value={this.state.origine} onChange={this.handleChange} />
               <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.origineError}
@@ -198,14 +198,14 @@ class Template_FormulaireModification extends React.Component {
           <div >
             <div className="row">
               <div className="col-4 ">
-              <label>Largeur</label>
+                <label>Largeur</label>
                 <input type="number" className="form-control input101" id="inputLargeur" value={this.state.inputLargeur} placeholder="Largeur" onChange={this.handleChange} ></input>
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.largeurError}
                 </div>
               </div>
 
-              <div className="col-4"> 
+              <div className="col-4">
                 <label>Longueur</label>
                 <input type="number" className="form-control input101" id="inputLongueur" placeholder="Longueur" value={this.state.inputLongueur} onChange={this.handleChange}></input>
                 <div style={{ fontSize: 12, color: "red" }}>
@@ -214,7 +214,7 @@ class Template_FormulaireModification extends React.Component {
               </div>
 
               <div className="col-4">
-              <label>Hauteur</label>
+                <label>Hauteur</label>
                 <input type="number" className="form-control input101" id="inputHauteur" placeholder="Hauteur" value={this.state.inputHauteur} onChange={this.handleChange}></input>
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.hauteurError}
@@ -228,13 +228,15 @@ class Template_FormulaireModification extends React.Component {
           </div>
           <br />
           <div className="row">
-          <input type="submit" className="col-2 btn-ok btn" value="Modifier" />
-          <Link to="ListeSalles">
-            <input type="button" className="col-2 btn-ok btn " value="Annuler"/>
-          </Link>
+            <div className="col-12">
+              <input type="submit" className="boutonR col-6" value="Modifier" />
+              <Link to="ListeSalles">
+                <input type="button" className="boutonR boutonR2 col-6" value="Annuler" />
+              </Link>
+            </div>
           </div>
-          
         </form>
+        <br />
       </div>
     );
   }

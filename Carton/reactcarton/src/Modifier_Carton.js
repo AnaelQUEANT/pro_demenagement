@@ -50,8 +50,8 @@ class ModifierCarton extends React.Component {
 
         var listItems2 = this.state.tab2.map(e => (
           <TemplateListeObjet nom={e.nom} id={e.id} />
-
         ));
+        
         console.log("HIBOOUUUUUU : " + idCarton);
         var listItems = this.state.tab.map(e => (
           <TemplateFormulaireModif text2={listItems2} leID={idCarton} photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} largeur={e.largeur} longueur={e.longueur} hauteur={e.hauteur} fragile={e.fragile} idBouton={e.id} couleur={e.couleur} />
