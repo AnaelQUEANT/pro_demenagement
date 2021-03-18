@@ -28,7 +28,9 @@ function TableauDeBord(props) {
                     <div className="titre-link">Tâches Administratives</div>
                     <div className="description-link">On vous accompagne pour vous faciliter la vie avec la "paperasse".</div>
                 </div>
-                <RightIcon className="link"/>
+                <Link to={{ pathname: ""}} className="link">
+                    <RightIcon className="icon"/>
+                </Link>
             </div>
 
             <div className="menu-link">
@@ -37,7 +39,9 @@ function TableauDeBord(props) {
                     <div className="titre-link">Gestion des contrats</div>
                     <div className="description-link">Laissez-vous guider pour tarnsférer ou souscrire à un contrat</div>
                 </div>
-                <RightIcon className="link"/>
+                <Link to={{ pathname: ""}} className="link">
+                    <RightIcon className="icon"/>
+                </Link>
             </div>
 
             <div className="menu-link">
@@ -46,7 +50,9 @@ function TableauDeBord(props) {
                     <div className="titre-link">Tri de ses affaires</div>
                     <div className="description-link">Vous ne savez plus où donner de la tête ? Trier, donner, jeter ?</div>
                 </div>
-                <RightIcon className="link"/>
+                <Link to={{ pathname: ""}} className="link">
+                    <RightIcon className="icon"/>
+                </Link>
             </div>
 
             <div className="menu-link">
@@ -55,7 +61,9 @@ function TableauDeBord(props) {
                     <div className="titre-link">Faire ses cartons</div>
                     <div className="description-link">Vous ne savez plus où donner de la tête ?</div>
                 </div>
-                <RightIcon className="link"/>
+                <Link to={{ pathname: ""}} className="link">
+                    <RightIcon className="icon"/>
+                </Link>
             </div>
 
             <div className="menu-link">
@@ -64,13 +72,16 @@ function TableauDeBord(props) {
                     <div className="titre-link">Transport</div>
                     <div className="description-link">Vous ne savez plus où donner de la tête ?</div>
                 </div>
-                <RightIcon className="link"/>
+                <Link to={{ pathname: ""}} className="link">
+                    <RightIcon className="icon"/>
+                </Link>
             </div>
         </div>
 
         <div className="footer">
             Le footer ici, prochainement
         </div>
+        <div className="cheat"></div>
 
     </div>
   );

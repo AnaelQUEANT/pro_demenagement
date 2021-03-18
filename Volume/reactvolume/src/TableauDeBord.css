@@ -54,6 +54,7 @@
     border-radius: 10px;
     padding: 0px 0px 15px 0px;
     margin-bottom: 20px;
+    width: 100%;
 }
 .body .menu-link .titre-link {
     font-weight: bold;
@@ -61,8 +62,8 @@
 }
 .body .menu-link .description-link {
      max-width: 80%;
-} 
-.menu-link .link {
+}
+.link .icon {
     position: relative;
     min-width: 32px;
     max-width: 32px;
@@ -81,6 +82,7 @@
     height: 15vh;
     width: 100vw;
     bottom: 0px;
-;
-
+}
+.cheat {
+    margin-bottom: 15vh;
 }
