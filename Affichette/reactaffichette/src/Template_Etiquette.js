@@ -1,5 +1,8 @@
-import React from 'react'
 import {Link} from 'react-router-dom'
+import React, {useState} from 'react'
+import {Fab, TextField, TextareaAutosize, Grid} from '@material-ui/core'
+import {ArrowBack, GetApp} from '@material-ui/icons'
+import QRcode from 'qrcode.react'
 
 class TemplateEtiquette extends React.Component {
     render() {
@@ -8,6 +11,16 @@ class TemplateEtiquette extends React.Component {
         <tbody id="message">
             
             <tr classname="row">
+                <td>
+                    {
+                        <QRcode 
+                            id="myqr"
+                            value={"machin"} 
+                            size={100}
+                            includeMargin={true}
+                        />
+                    }
+                </td>
                 <td className="col-3">
                     <p>{this.props.origine}</p>
                 </td>
