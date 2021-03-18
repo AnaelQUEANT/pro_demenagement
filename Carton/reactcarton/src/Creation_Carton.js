@@ -251,13 +251,16 @@ class CreationCarton extends React.Component {
             {this.state.text}
           </table>
           <br />
-          <div className="row ">
-            <input type="submit" className="col-3 btn-ok btn" value="Créer" />
-            <Link to="ListeSalles" className="col-3">
-              <input type="button" className=" btn-non btn" value="Annuler" />
-            </Link>
+          <div className="row">
+            <div className="col-12">
+              <input type="submit" className="boutonR col-6" value="Créer" />
+              <Link to="ListeSalles">
+                <input type="button" className="boutonR boutonR2 col-6" value="Annuler" />
+              </Link>
+            </div>
           </div>
         </form>
+        <br/>
       </div>
 
     )
