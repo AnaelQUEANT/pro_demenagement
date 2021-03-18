@@ -142,6 +142,7 @@ class Template_FormulaireModification extends React.Component {
         })
       } catch (e) {
         console.log(e);
+        console.log("error");
       }
     }
   };
