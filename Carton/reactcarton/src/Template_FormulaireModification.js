@@ -1,40 +1,70 @@
 import React from 'react'
 import './CSS/CreationCarton.css';
 import cartonAjout from './Image/AjoutImage.PNG';
+import { Link } from 'react-router-dom'
 class Template_FormulaireModification extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: '',
-      text: '',
-      tab: [],
-      text2: '',
-      tab2: [],
-      leTest: 'try',
-      inputLongueur: this.props.longueur,
-      inputLargeur: this.props.largeur,
-      inputHauteur: this.props.hauteur,
-      origine: this.props.origine,
-      nameError: '',
-      hauteurError: '',
-      largeurError: '',
-      longueurError: '',
-      origineError: '',
-      destinationError: '',
-      inputFragile: this.props.fragile,
-      inputDestination: this.props.destination,
-      selectCouleur: this.props.couleur,
-      inputFile: '',
-      idDestination: '',
-      valID: '',
-      get: this.props.leID
-    };
+    
+    if(this.props.fragile == 1){
+      this.state = {
+        value: '',
+        text: '',
+        tab: [],
+        text2: '',
+        tab2: [],
+        leTest: 'try',
+        inputLongueur: this.props.longueur,
+        inputLargeur: this.props.largeur,
+        inputHauteur: this.props.hauteur,
+        origine: this.props.origine,
+        nameError: '',
+        hauteurError: '',
+        largeurError: '',
+        longueurError: '',
+        origineError: '',
+        destinationError: '',
+        inputFragile: this.props.fragile,
+        inputDestination: this.props.destination,
+        selectCouleur: this.props.couleur,
+        inputFile: '',
+        idDestination: '',
+        valID: '',
+        get: this.props.leID
+      };
+    }else{
+      this.state = {
+        value: '',
+        text: '',
+        tab: [],
+        text2: '',
+        tab2: [],
+        leTest: 'try',
+        inputLongueur: this.props.longueur,
+        inputLargeur: this.props.largeur,
+        inputHauteur: this.props.hauteur,
+        origine: this.props.origine,
+        nameError: '',
+        hauteurError: '',
+        largeurError: '',
+        longueurError: '',
+        origineError: '',
+        destinationError: '',
+        inputFragile: this.props.fragile,
+        inputDestination: this.props.destination,
+        selectCouleur: this.props.couleur,
+        inputFile: '',
+        idDestination: '',
+        valID: '',
+        get: this.props.leID
+      };
+    }
   }
 
   
   componentDidMount(){
     if(this.props.fragile == 1){
-      
+      document.getElementById("inputFragile").checked = true;
     }
   }
 
@@ -84,7 +114,6 @@ class Template_FormulaireModification extends React.Component {
         console.log("ICIIIIIIIII " + cell.nom + " et " + nomDestination + " donc " + cell.id);
         if (cell.nom == nomDestination) {
           this.state.idDestination = cell.id;
-
           return cell.id;
         }
       }.bind(this));
@@ -114,30 +143,6 @@ class Template_FormulaireModification extends React.Component {
       } catch (e) {
         console.log(e);
       }
-
-
-      /*var row = this.state.tab.map(function(cell) {
-        var value = "id" + cell.id;
-        var elemID = document.getElementByID(value).checked;
-        if(elemID){
-          try{
-            let monAPI = "http://localhost:16500/ajoutObjetCarton";
-            fetch(monAPI, {
-              method: 'POST',
-              headers: { 'content-type': 'application/json' },
-              body: JSON.stringify({
-              })
-            })
-          }catch(e){
-            console.log(e);
-          }
-            this.state.idDestination = cell.id;
-            return cell.id;       
-        }
-      }.bind(this));
-      //this.setState(initialState);
-      */
-      //this.props.history.push('/ListeSalles');
     }
   };
   render() {
@@ -163,7 +168,7 @@ class Template_FormulaireModification extends React.Component {
               <br />
               <br />
               <div>
-                <input type="checkbox" id="inputFragile" value={this.state.fragile} name="Fragile" onChange={this.handleChange}  />
+                <input type="checkbox" id="inputFragile" name="Fragile" onChange={this.handleChange}  />
                 <label for="Fragile">Fragile</label>
               </div>
             </div>
@@ -208,9 +213,7 @@ class Template_FormulaireModification extends React.Component {
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.hauteurError}
                 </div>
-
               </div>
-
             </div>
           </div>
           <br />
@@ -218,7 +221,10 @@ class Template_FormulaireModification extends React.Component {
             {this.state.text}
           </div>
           <br />
-          <input type="submit" value="Créer" />
+          <input type="submit" value="Modifier" />
+          <Link to="ListeSalles">
+            <input type="button" value="Annuler"/>
+          </Link>
         </form>
       </div>
     );
