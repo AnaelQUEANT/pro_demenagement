@@ -45,17 +45,20 @@ class ModifierCarton extends React.Component {
           console.log("hey");
         }
         console.log(this.state.tab);
-        var listItems = this.state.tab.map(e => (
-          <TemplateFormulaireModif leID={idCarton} photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} largeur={e.largeur} longueur={e.longueur} hauteur={e.hauteur} fragile={e.fragile} idBouton={e.id} couleur={e.couleur} />
-
-        ));
-        this.setState({ text: listItems })
 
         var listItems2 = this.state.tab2.map(e => (
           <TemplateListeObjet nom={e.nom} id={e.id} />
 
         ));
-        this.setState({ text2: listItems2 })
+        var listItems = this.state.tab.map(e => (
+          <TemplateFormulaireModif text2={listItems2} leID={idCarton} photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} largeur={e.largeur} longueur={e.longueur} hauteur={e.hauteur} fragile={e.fragile} idBouton={e.id} couleur={e.couleur} />
+
+        ));
+        
+
+        
+        this.setState({ text: listItems })
+        //this.setState({ text2: listItems2 })
 
       });
 
@@ -68,7 +71,6 @@ class ModifierCarton extends React.Component {
         <TemplateMenu nom="ListeSalles" />
         <div>
           {this.state.text}
-          {this.state.text2}
         </div>
 
       </div>

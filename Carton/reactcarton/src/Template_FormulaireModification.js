@@ -11,7 +11,7 @@ class Template_FormulaireModification extends React.Component {
         value: '',
         text: '',
         tab: [],
-        text2: '',
+        text2: this.props.text2,
         tab2: [],
         leTest: 'try',
         inputLongueur: this.props.longueur,
@@ -176,6 +176,7 @@ class Template_FormulaireModification extends React.Component {
           <br />
           <div class="form-group">
             <div class=" ">
+            <label>Destination</label>
               <input class="input100 form-control" type="text" name="name" disabled="disabled" placeholder="Destination" id="inputDestination" value={this.state.inputDestination} onChange={this.handleChange} />
               <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.destinationError}
@@ -185,6 +186,7 @@ class Template_FormulaireModification extends React.Component {
           <br />
           <div class="form-group">
             <div class=" ">
+            <label>Origine</label>
               <input class="input100 form-control" type="text" name="name" placeholder="Origine" id="origine" value={this.state.origine} onChange={this.handleChange} />
               <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.origineError}
@@ -195,6 +197,7 @@ class Template_FormulaireModification extends React.Component {
           <div >
             <div className="row">
               <div className="col-4 ">
+              <label>Largeur</label>
                 <input type="number" className="form-control input101" id="inputLargeur" value={this.state.inputLargeur} placeholder="Largeur" onChange={this.handleChange} ></input>
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.largeurError}
@@ -202,6 +205,7 @@ class Template_FormulaireModification extends React.Component {
               </div>
 
               <div className="col-4"> 
+                <label>Longueur</label>
                 <input type="number" className="form-control input101" id="inputLongueur" placeholder="Longueur" value={this.state.inputLongueur} onChange={this.handleChange}></input>
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.longueurError}
@@ -209,6 +213,7 @@ class Template_FormulaireModification extends React.Component {
               </div>
 
               <div className="col-4">
+              <label>Hauteur</label>
                 <input type="number" className="form-control input101" id="inputHauteur" placeholder="Hauteur" value={this.state.inputHauteur} onChange={this.handleChange}></input>
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.hauteurError}
@@ -218,13 +223,16 @@ class Template_FormulaireModification extends React.Component {
           </div>
           <br />
           <div>
-            {this.state.text}
+            {this.state.text2}
           </div>
           <br />
-          <input type="submit" value="Modifier" />
+          <div className="row">
+          <input type="submit" className="col-2 buttonStyle" value="Modifier" />
           <Link to="ListeSalles">
-            <input type="button" value="Annuler"/>
+            <input type="button" className="col-2 buttonStyle" value="Annuler"/>
           </Link>
+          </div>
+          
         </form>
       </div>
     );
