@@ -53,3 +53,34 @@
     min-height: 169px;
     padding: 19px 35px 0 35px;
   }
+
+  .recommendation .btn {
+    position: relative;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px 0px;
+}
+.btn-ok{
+    width: 80%;
+    font-size: 1.2em;
+    background-color: #FF7276;
+    color: white;  
+}
+.btn-non {
+    width: 50%;
+    font-size: 1.1em;
+    color: rgb(140, 140, 140);
+}
+
+.boutonR {
+  position: fixed;
+  bottom: 0;
+  font-size: 1.2em;
+  background-color: #FF7276;
+  color: white;
+  border-radius: 20px;
+}
+
+.boutonR2{
+  right: 0;
+}

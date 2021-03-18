@@ -2,7 +2,7 @@ import React from 'react'
 import TemplateListeObjet from './Template_ListeEquipementCarton.js'
 import TemplateListeDeroulante from './Template_ListeDeroulante.js'
 import TemplateMenu from './Template_Navigation.js'
-
+import { Link } from 'react-router-dom'
 import './CSS/CreationCarton.css';
 import cartonAjout from './Image/AjoutImage.PNG';
 class CreationCarton extends React.Component {
@@ -170,28 +170,6 @@ class CreationCarton extends React.Component {
           })
         }
       }.bind(this));
-
-      /*var row = this.state.tab.map(function(cell) {
-        var value = "id" + cell.id;
-        var elemID = document.getElementByID(value).checked;
-        if(elemID){
-          try{
-            let monAPI = "http://localhost:16500/ajoutObjetCarton";
-            fetch(monAPI, {
-              method: 'POST',
-              headers: { 'content-type': 'application/json' },
-              body: JSON.stringify({
-              })
-            })
-          }catch(e){
-            console.log(e);
-          }
-            this.state.idDestination = cell.id;
-            return cell.id;       
-        }
-      }.bind(this));
-      //this.setState(initialState);
-      */
       this.props.history.push('/ListeSalles');
     }
   };
@@ -251,7 +229,7 @@ class CreationCarton extends React.Component {
                 </div>
               </div>
 
-              <div className="col-4"> 
+              <div className="col-4">
                 <input type="number" className="form-control input101" id="inputLongueur" placeholder="Longueur" value={this.state.longueur} onChange={this.handleChange}></input>
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.longueurError}
@@ -269,12 +247,20 @@ class CreationCarton extends React.Component {
             </div>
           </div>
           <br />
-          <div>
+          <table>
             {this.state.text}
-          </div>
+          </table>
           <br />
-          <input type="submit" value="Créer" />
+          <div className="row">
+            <div className="col-12">
+              <input type="submit" className="boutonR col-6" value="Créer" />
+              <Link to="ListeSalles">
+                <input type="button" className="boutonR boutonR2 col-6" value="Annuler" />
+              </Link>
+            </div>
+          </div>
         </form>
+        <br/>
       </div>
 
     )
