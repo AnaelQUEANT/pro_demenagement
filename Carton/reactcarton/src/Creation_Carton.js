@@ -170,28 +170,6 @@ class CreationCarton extends React.Component {
           })
         }
       }.bind(this));
-
-      /*var row = this.state.tab.map(function(cell) {
-        var value = "id" + cell.id;
-        var elemID = document.getElementByID(value).checked;
-        if(elemID){
-          try{
-            let monAPI = "http://localhost:16500/ajoutObjetCarton";
-            fetch(monAPI, {
-              method: 'POST',
-              headers: { 'content-type': 'application/json' },
-              body: JSON.stringify({
-              })
-            })
-          }catch(e){
-            console.log(e);
-          }
-            this.state.idDestination = cell.id;
-            return cell.id;       
-        }
-      }.bind(this));
-      //this.setState(initialState);
-      */
       this.props.history.push('/ListeSalles');
     }
   };
@@ -269,9 +247,9 @@ class CreationCarton extends React.Component {
             </div>
           </div>
           <br />
-          <div>
+          <table>
             {this.state.text}
-          </div>
+          </table>
           <br />
           <input type="submit" value="Créer" />
         </form>
