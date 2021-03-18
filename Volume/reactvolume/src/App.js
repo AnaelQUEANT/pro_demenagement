@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import Recapitulatif from './Recapitulatif';
 import CalculateurVolume from './CalculateurVolume';
 import TableauDeBord from './TableauDeBord';
-sessionStorage.setItem('cle','valeur');
+
 
 function App() {
   return (
