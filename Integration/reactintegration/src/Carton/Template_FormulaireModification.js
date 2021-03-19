@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 class Template_FormulaireModification extends React.Component {
   constructor(props) {
     super(props);
-
     if (this.props.fragile === 1) {
       this.state = {
         value: '',
@@ -31,7 +30,7 @@ class Template_FormulaireModification extends React.Component {
         idDestination: '',
         valID: '',
         get: this.props.leID,
-        getidCarton : this.props.id
+        getidCarton: this.props.id
       };
     } else {
       this.state = {
@@ -58,7 +57,7 @@ class Template_FormulaireModification extends React.Component {
         idDestination: '',
         valID: '',
         get: this.props.leID,
-        getidCarton :this.props.id
+        getidCarton: this.props.id
       };
     }
   }
@@ -120,7 +119,7 @@ class Template_FormulaireModification extends React.Component {
         }
       }.bind(this));
       try {
-        let monAPI = "http://localhost:16500/UpdateCarton/" +  this.props.id;
+        let monAPI = "http://localhost:16500/UpdateCarton/" + this.props.id;
         if (elementCheck) {
           elementCheck = 1;
         } else {
