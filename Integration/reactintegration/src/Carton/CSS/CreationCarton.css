@@ -1,0 +1,86 @@
+
+.wrap-input100 {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 31px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .input100 {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-radius: 31px;
+    font-family: Ubuntu-Bold;
+    font-size: 18px;
+    color: #8f8fa1;
+    line-height: 1.2;
+  }
+
+  .input101 {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-radius: 31px;
+    font-family: Ubuntu-Bold;
+    font-size: 10px;
+    color: #8f8fa1;
+    line-height: 1.2;
+  }
+  
+  
+  /*---------------------------------------------*/
+  input.input100 {
+    height: 62px;
+    padding: 0 35px 0 35px;
+  }
+  
+  input.input101 {
+    height: 62px;
+    padding: 0 35px 0 35px;
+  }
+
+  textarea.input101 {
+    min-height: 169px;
+    padding: 19px 35px 0 35px;
+  }
+  
+  textarea.input100 {
+    min-height: 169px;
+    padding: 19px 35px 0 35px;
+  }
+
+  .recommendation .btn {
+    position: relative;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 10px 0px;
+}
+.btn-ok{
+    width: 80%;
+    font-size: 1.2em;
+    background-color: #FF7276;
+    color: white;  
+}
+.btn-non {
+    width: 50%;
+    font-size: 1.1em;
+    color: rgb(140, 140, 140);
+}
+
+.boutonR {
+  position: fixed;
+  bottom: 0;
+  font-size: 1.2em;
+  background-color: #FF7276;
+  color: white;
+  border-radius: 20px;
+}
+
+.boutonR2{
+  right: 0;
+}
