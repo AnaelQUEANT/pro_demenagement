@@ -30,7 +30,8 @@ class Template_FormulaireModification extends React.Component {
         inputFile: '',
         idDestination: '',
         valID: '',
-        get: this.props.leID
+        get: this.props.leID,
+        getidCarton : this.props.id
       };
     } else {
       this.state = {
@@ -56,10 +57,17 @@ class Template_FormulaireModification extends React.Component {
         inputFile: '',
         idDestination: '',
         valID: '',
-        get: this.props.leID
+        get: this.props.leID,
+        getidCarton :this.props.id
       };
     }
   }
+
+  getArgument(elem) {
+    var param = elem.split('=');
+    return param[1];
+  }
+
   componentDidMount() {
     if (this.props.fragile === 1) {
       document.getElementById("inputFragile").checked = true;
@@ -112,7 +120,7 @@ class Template_FormulaireModification extends React.Component {
         }
       }.bind(this));
       try {
-        let monAPI = "http://localhost:16500/UpdateCarton/" + this.state.get;
+        let monAPI = "http://localhost:16500/UpdateCarton/" +  this.props.id;
         if (elementCheck) {
           elementCheck = 1;
         } else {
