@@ -5,6 +5,7 @@ import { ReactComponent as RightIcon } from './img/chevron-right.svg';
 import { ReactComponent as DanaF } from './img/UBO_Illustration_Dana_Gestion_des_contrats.svg';
 import { ReactComponent as DanaH } from './img/UBO_Illustration_Dana_Taches_admin.svg';
 import './TableauDeBord.css';
+import { MenuCarton } from '../Carton/Menu_Carton';
 
 
 
@@ -61,7 +62,7 @@ function TableauDeBord(props) {
                     <div className="titre-link">Faire ses cartons</div>
                     <div className="description-link">Vous ne savez plus où donner de la tête ?</div>
                 </div>
-                <Link to={{ pathname: ""}} className="link">
+                <Link to={{ pathname: "MenuCarton"}} className="link">
                     <RightIcon className="icon"/>
                 </Link>
             </div>

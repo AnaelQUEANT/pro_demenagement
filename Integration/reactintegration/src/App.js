@@ -23,10 +23,10 @@ class App extends React.Component {
               <Route path="/CreationCarton" component={CreationCarton} />
               <Route path="/ListeCartons" component={ListeCartons} />
               <Route path="/ModifierCarton" component={ModifierCarton} />
-              <Route exact path="/" component={MenuCarton} />
+              <Route exact path="/MenuCarton" component={MenuCarton} />
               <Route exact path='/CalculateurVolume' component={CalculateurVolume} />
               <Route exact path='/Recapitulatif' component={Recapitulatif} />
-              <Route exact path='/TableauDeBord' component={TableauDeBord} />
+              <Route exact path='/' component={TableauDeBord} />
             </Switch>
           </div>
         </BrowserRouter>
