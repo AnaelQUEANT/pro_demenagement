@@ -15,7 +15,7 @@ class TemplateEtiquette extends React.Component {
                     {
                         <QRcode 
                             id="myqr"
-                            value={"machin"} 
+                            value={"http://localhost:3000/Carton?id="+this.props.id} 
                             size={100}
                             includeMargin={true}
                         />
