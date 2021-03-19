@@ -1,0 +1,14 @@
+.list-salle .btn-outline-danger {
+    border-radius: 5px !important;
+    margin: 10px 10px !important;
+}
+
+.list-salle {
+display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
