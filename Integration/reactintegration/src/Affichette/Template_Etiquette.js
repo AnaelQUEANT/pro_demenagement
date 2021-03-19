@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 import React, {useState} from 'react'
-import {Fab, TextField, TextareaAutosize, Grid} from '../../@material-ui/core'
-import {ArrowBack, GetApp} from '../../@material-ui/icons'
+import {Fab, TextField, TextareaAutosize, Grid} from '@material-ui/core'
+import {ArrowBack, GetApp} from '@material-ui/icons'
 import QRcode from 'qrcode.react'
 
 class TemplateEtiquette extends React.Component {
