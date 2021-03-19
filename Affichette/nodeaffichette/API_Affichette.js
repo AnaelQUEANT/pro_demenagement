@@ -96,6 +96,22 @@ app.get('/lesCartons/:idSalle', (req, res) => {
 })
 
 
+app.get('/carton/:idCarton', (req, res) => {
+    const id = req.params.idCarton;
+        setupConnection();
+        connection.connect((err) => {
+        if(err) throw err;
+        let requete = 'SELECT * from Carton ';
+        requete += 'left join Carton_has_Equipement using (Carton_id) ';
+        requete += 'left join Equipement_Carton using (Equipement_Carton_id) ';
+        requete += 'where Carton.Carton_id = ' + id;
+        connection.query(requete, function (error, results, fields){
+            if(error) throw error;
+            res.send(results);
+        })
+        connection.end();
+    })
+})
 
 
 app.listen(7251, () => {

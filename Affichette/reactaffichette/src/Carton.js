@@ -1,7 +1,7 @@
 import React from 'react'
-import TemplateListe from './Template_Etiquette.js'
+import TemplateListe from './Template_Carton.js'
 
-class Affichette extends React.Component {
+class Carton extends React.Component {
 
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ class Affichette extends React.Component {
   
   componentDidMount() {
 
-        let monAPI = "http://localhost:7251/lesCartons/"+ this.getArgument(this.state.get);;
+        let monAPI = "http://localhost:7251/carton/"+ this.getArgument(this.state.get);;
 
         fetch(monAPI)
             .then(response => response.json())
@@ -29,13 +29,16 @@ class Affichette extends React.Component {
                 this.state.tab = [];
                 var test = this.state.tab;
                 var tableauID = [];
+
+                this.setState({origine: response[0].Carton_origine, description : response[0].Carton_description})
+
                 for(var i=0;i<response.length;i++){
-                    test[i] = { id: response[i].Carton_id, origine:  response[i].Carton_origine, description : response[i].Carton_description};
+                    test[i] = { contenu : response[i].Equipement_Carton_nom};
 
                 }
                 console.log(this.state.tab.length);
                 var listItems = this.state.tab.map(e => (
-                    <TemplateListe id={e.id} origine={e.origine} description={e.description} />
+                    <TemplateListe origine={e.origine} description={e.description} contenu={e.contenu} />
         
                 ));
                 this.setState({text:listItems})
@@ -46,12 +49,14 @@ class Affichette extends React.Component {
   render() {
     return (
       <div>
+
+        <h2>Origine : {this.state.origine}</h2>
+        <h2>Description : {this.state.description}</h2>
+
         <table>
         <thead>
         <tr> 
-          <th>Contenue</th>
-        	<th>Origine</th> 
-        	<th>Description</th> 
+          <th>Contenu</th>
         </tr>
         </thead>
         {this.state.text}
@@ -61,4 +66,4 @@ class Affichette extends React.Component {
   }
 
 }
-export default Affichette
+export default Carton
