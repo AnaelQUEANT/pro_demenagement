@@ -6,6 +6,7 @@ import { ReactComponent as DanaF } from './img/UBO_Illustration_Dana_Gestion_des
 import { ReactComponent as DanaH } from './img/UBO_Illustration_Dana_Taches_admin.svg';
 import './TableauDeBord.css';
 import { MenuCarton } from '../Carton/Menu_Carton';
+import {CalculateurVolume} from './CalculateurVolume';
 
 
 
@@ -73,15 +74,16 @@ function TableauDeBord(props) {
                     <div className="titre-link">Transport</div>
                     <div className="description-link">Vous ne savez plus où donner de la tête ?</div>
                 </div>
-                <Link to={{ pathname: ""}} className="link">
+                <Link to={{ pathname: "CalculateurVolume"}} className="link">
                     <RightIcon className="icon"/>
                 </Link>
             </div>
         </div>
-
+        {/*
         <div className="footer">
             Le footer ici, prochainement
         </div>
+        */}
         <div className="cheat"></div>
 
     </div>
