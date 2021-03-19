@@ -1,18 +1,14 @@
 import React from 'react'
 import boutonModif from './Image/bouton_modifier.png';
 import ImageCarton from './Image/carton.png';
-import ImageFragile from './Image/fragile.png';
 import { Link } from 'react-router-dom'
 import './CSS/ListeCartons.css';
-
-
 class TemplateListe extends React.Component {
     render() {
         return (
             <div className="row col-12 carton-elem">
                 <div className="col-2 photo-carton">
-                    {/*{this.props.photo}*/}
-                    <img className="ImageCarton" src={ImageCarton} width="200%" alt="image temporaire de carton"></img>
+                    <img className="ImageCarton" src={ImageCarton} width="200%" alt="ImageCarton absente"></img>
                 </div>
                 <div className="col-2 circle">
                     {this.props.id}

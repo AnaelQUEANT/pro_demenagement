@@ -2,10 +2,7 @@ import React from 'react'
 import TemplateListe from './Template_Liste.js'
 import TemplateMenu from './Template_Navigation.js'
 import './CSS/ListeCartons.css';
-
 class ListeCartons extends React.Component {
-
-
   constructor(props) {
     super(props);
     this.state = {
@@ -15,16 +12,12 @@ class ListeCartons extends React.Component {
       get: props.location.search
     };
   }
-
   getArgument(elem) {
     var param = elem.split('=');
     return param[1];
   }
-
   componentDidMount() {
-
     let monAPI = "http://localhost:16500/lesCartons/" + this.getArgument(this.state.get);
-    console.log(monAPI);
     fetch(monAPI)
       .then(response => response.json())
       .then(response => {
@@ -42,18 +35,12 @@ class ListeCartons extends React.Component {
           }
 
         }
-        console.log(this.state.tab.length + " YOPPPP");
-
         var listItems = this.state.tab.map(e => (
-
           <TemplateListe photo={e.photo} id={e.id} origine={e.origine} destination={e.destination} dim={e.dim} fragile={e.fragile} idBouton={e.id} />
-
         ));
         this.setState({ text: listItems })
-
       });
   }
-
   render() {
     return (
       <div>
@@ -65,7 +52,6 @@ class ListeCartons extends React.Component {
           </div>
         </div>
       </div>
-
     )
   }
 }

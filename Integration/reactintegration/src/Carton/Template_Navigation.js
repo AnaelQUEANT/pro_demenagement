@@ -1,8 +1,6 @@
 import React from 'react'
-import retour from './Image/chevron_left.png';
 import { Link } from 'react-router-dom'
 import './CSS/BarreDeNav.css';
-import ListeSalles from './Liste_Salles';
 class TemplateNavigation extends React.Component {
   render() {
     return (

@@ -43,7 +43,6 @@ class CreationCarton extends React.Component {
         for (var i = 0; i < response.length; i++) {
           test[i] = { nom: response[i].Equipement_Carton_nom, id: response[i].Equipement_Carton_id };
         }
-        console.log(this.state.tab);
         var listItems = this.state.tab.map(e => (
           <TemplateListeObjet nom={e.nom} id={e.id} />
 
@@ -60,7 +59,6 @@ class CreationCarton extends React.Component {
         for (var i = 0; i < response.length; i++) {
           test2[i] = { nom: response[i].Piece_nom, id: response[i].Piece_id, nbCarton: response[i].nbCarton };
         }
-        console.log(this.state.tab2);
         var listItems2 = this.state.tab2.map(e => (
           <TemplateListeDeroulante nom={e.nom} id={e.id} />
         ));
@@ -68,20 +66,17 @@ class CreationCarton extends React.Component {
       });
   }
   getIdCarton() {
-    console.log("SNK C TRO B1");
     fetch("http://localhost:16500/getIDCarton")
       .then(response => response.json())
       .then(response => {
         for (var i = 0; i < response.length; i++) {
           this.state.valID = response[i].Carton_id;
         }
-        console.log("YOOO : " + this.state.valID);
       });
     return true;
   }
 
   handleChange = event => {
-    console.log(event.target.value);
     this.setState({ [event.target.id]: event.target.value });
   };
   validate = () => {
@@ -114,11 +109,9 @@ class CreationCarton extends React.Component {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      console.log(this.state);
       var elementCheck = document.getElementById('inputFragile').checked;
       var nomDestination = document.getElementById('inputDestination').value;
       var row = this.state.tab2.map(function (cell) {
-        console.log("ICIIIIIIIII " + cell.nom + " et " + nomDestination + " donc " + cell.id);
         if (cell.nom == nomDestination) {
           this.state.idDestination = cell.id;
 
@@ -132,11 +125,8 @@ class CreationCarton extends React.Component {
         } else {
           elementCheck = 0;
         }
-        console.log(this.state.origine + this.state.selectCouleur + this.state.inputLargeur + this.state.inputLongueur + this.state.inputHauteur + elementCheck + this.state.idDestination);
-
         fetch(monAPI, {
           method: 'POST',
-
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify({
             "origine": this.state.origine,
@@ -156,10 +146,7 @@ class CreationCarton extends React.Component {
       this.state.tab.map(function (cell) {
         var idObjet = "id" + cell.id;
         var elementTrue = document.getElementById(idObjet).checked;
-        console.log("ICCCCCCCCCI : " + cell.id + " ettt " + this.state.valID);
         if (elementTrue) {
-          console.log('KOH LANTA ' + this.state.valID);
-
           let monAPI = "http://localhost:16500/ajoutEquipementCarton";
           fetch(monAPI, {
             method: 'POST',
@@ -229,22 +216,18 @@ class CreationCarton extends React.Component {
                   {this.state.largeurError}
                 </div>
               </div>
-
               <div className="col-4">
                 <input type="number" className="form-control input101" id="inputLongueur" placeholder="Longueur" value={this.state.longueur} onChange={this.handleChange}></input>
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.longueurError}
                 </div>
               </div>
-
               <div className="col-4">
                 <input type="number" className="form-control input101" id="inputHauteur" placeholder="Hauteur" value={this.state.hauteur} onChange={this.handleChange}></input>
                 <div style={{ fontSize: 12, color: "red" }}>
                   {this.state.hauteurError}
                 </div>
-
               </div>
-
             </div>
           </div>
           <br />
@@ -261,9 +244,8 @@ class CreationCarton extends React.Component {
             </div>
           </div>
         </form>
-        <br/>
+        <br />
       </div>
-
     )
   }
 }

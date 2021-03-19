@@ -3,9 +3,7 @@ import TemplateGrid from './Template_Grid.js'
 import TemplateMenu from './Template_Navigation.js'
 import { Link } from 'react-router-dom'
 import cartonAjout from './Image/AjoutCarton.PNG';
-
 class ListeSalles extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -15,12 +13,8 @@ class ListeSalles extends React.Component {
       nav: ''
     };
   }
-
   componentDidMount() {
-
     let monAPI = "http://localhost:16500/LesPieces/" + "1";
-
-    console.log("api : " + monAPI);
     fetch(monAPI)
       .then(response => response.json())
       .then(response => {
@@ -29,15 +23,11 @@ class ListeSalles extends React.Component {
         var tableauID = [];
         for (var i = 0; i < response.length; i++) {
           test[i] = { nom: response[i].Piece_nom, id: response[i].Piece_id, nbCarton: response[i].nbCarton };
-          console.log("id : " + response[i].Piece_id);
         }
-        console.log(test);
         var listItems = this.state.tab.map(e => (
           <TemplateGrid mess={e.nom} id={e.id} nbCarton={e.nbCarton} />
         ));
         this.setState({ text: listItems })
-
-
       });
   }
 
@@ -63,7 +53,6 @@ class ListeSalles extends React.Component {
           </button>
           </Link>
         </div>
-
       </div>
     )
   }

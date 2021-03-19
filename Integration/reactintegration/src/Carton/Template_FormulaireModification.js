@@ -6,7 +6,7 @@ class Template_FormulaireModification extends React.Component {
   constructor(props) {
     super(props);
 
-    if (this.props.fragile == 1) {
+    if (this.props.fragile === 1) {
       this.state = {
         value: '',
         text: '',
@@ -60,16 +60,12 @@ class Template_FormulaireModification extends React.Component {
       };
     }
   }
-
-
   componentDidMount() {
-    if (this.props.fragile == 1) {
+    if (this.props.fragile === 1) {
       document.getElementById("inputFragile").checked = true;
     }
   }
-
   handleChange = event => {
-    console.log(event.target.value + " et " + [event.target.id]);
     this.setState({ [event.target.id]: event.target.value });
   };
   validate = () => {
@@ -107,11 +103,9 @@ class Template_FormulaireModification extends React.Component {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      console.log(this.state);
       var elementCheck = document.getElementById('inputFragile').checked;
       var nomDestination = document.getElementById('inputDestination').value;
-      var row = this.state.tab2.map(function (cell) {
-        console.log("ICIIIIIIIII " + cell.nom + " et " + nomDestination + " donc " + cell.id);
+      let row = this.state.tab2.map(function (cell) {
         if (cell.nom == nomDestination) {
           this.state.idDestination = cell.id;
           return cell.id;
@@ -124,8 +118,6 @@ class Template_FormulaireModification extends React.Component {
         } else {
           elementCheck = 0;
         }
-        console.log("Wesh alors : " + this.state.get);
-        console.log(this.state.origine + this.state.selectCouleur + this.state.inputLargeur + this.state.inputLongueur + this.state.inputHauteur + elementCheck + this.state.idDestination);
         fetch(monAPI, {
           method: 'PUT',
           headers: { 'content-type': 'application/json' },
@@ -145,6 +137,7 @@ class Template_FormulaireModification extends React.Component {
         console.log("error");
       }
     }
+    window.location.replace("/ListeSalles");
   };
   render() {
     return (
