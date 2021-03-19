@@ -44,6 +44,7 @@ class ListeSalles extends React.Component {
   render() {
     return (
       <div>
+        <title>Liste des salles</title>
         <div>
           <TemplateMenu nom="/" />
         </div>
@@ -51,23 +52,18 @@ class ListeSalles extends React.Component {
           <div className="col-4 flex-column btn_carton_virtuel" >
             <Link to="CreationCarton">
               <img className="image_carton_virtuel" src={cartonAjout} width="100%" height="100%" alt="Lien d'ajout de carton (Image absente)"></img>
-              {/*
-                <button type="button"  className="btn btn-outline-danger">
-                  Ajouter un carton
-                </button>
-                */}
             </Link>
           </div>
           {this.state.text}
         </div>
         <div className="laDivAffichette">
-        <Link to="AffichetteLogement">
-          <button type="button" className="btn btn-primary bouttonAffichette">
-            Editer des affichettes
+          <Link to="AffichetteLogement">
+            <button type="button" className="btn btn-primary bouttonAffichette">
+              Editer des affichettes
           </button>
           </Link>
         </div>
-        
+
       </div>
     )
   }

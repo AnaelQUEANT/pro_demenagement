@@ -57,6 +57,7 @@ class ListeCartons extends React.Component {
   render() {
     return (
       <div>
+        <title>Liste des cartons</title>
         <TemplateMenu nom="ListeSalles" />
         <div>
           <div class="row test">

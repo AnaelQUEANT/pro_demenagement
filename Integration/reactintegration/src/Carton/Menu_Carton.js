@@ -11,6 +11,7 @@ class MenuCarton extends React.Component {
     render() {
         return (
             <div>
+                <title>Menu selection Carton</title>
                 <TemplateMenu nom="/" />
                 <div>
                     <Link to="ListeSalles" >
