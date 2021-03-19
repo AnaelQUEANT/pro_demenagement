@@ -47,7 +47,7 @@ class ListeSalles extends React.Component {
           {this.state.text}
         </div>
         <div className="laDivAffichette">
-          <Link to="AffichetteLogement">
+          <Link to="AffichetteLogement/?id=1">
             <button type="button" className="btn btn-primary bouttonAffichette">
               Editer des affichettes
           </button>
