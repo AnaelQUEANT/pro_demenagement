@@ -1,6 +1,7 @@
 import React from 'react'
 import boutonModif from './Image/bouton_modifier.png';
 import ImageCarton from './Image/carton.png';
+import ImageLoupe from './Image/loupe.jpg';
 import { Link } from 'react-router-dom'
 import './CSS/ListeCartons.css';
 class TemplateListe extends React.Component {
