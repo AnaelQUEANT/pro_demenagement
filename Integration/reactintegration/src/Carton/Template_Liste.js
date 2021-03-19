@@ -11,7 +11,9 @@ class TemplateListe extends React.Component {
                     <img className="ImageCarton" src={ImageCarton} width="200%" alt="ImageCarton absente"></img>
                 </div>
                 <div className="col-2 circle">
-                    {this.props.id}
+                    <Link to={"Etiquette?id=" + this.props.id}>
+                        <img className="ImageLoupe" src={ImageLoupe} width="170%" alt="image temporaire de loupe"></img>
+                    </Link>
                 </div>
                 <div className="col-6 carton-info" >
                     <span>{this.props.origine} vers {this.props.destination}</span>
