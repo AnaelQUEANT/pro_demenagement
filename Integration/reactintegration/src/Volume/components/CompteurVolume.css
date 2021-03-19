@@ -1,0 +1,59 @@
+.boite{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: flex-start;
+    background-color: #FF7276;
+    border-radius: 10px;
+  }
+.nbElements{
+    color: #fff;
+    padding: 16px;
+    
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+}
+.surfaceTotal{
+    color: #fff;
+    padding: 16px;
+
+
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.flex-item:nth-child(1) {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    }
+
+
+    .flex-item:nth-child(2) {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        }
+
+
+.boutons{
+    color: black;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px;
+    margin: 16px;
+    border-radius: 5px;
+} 

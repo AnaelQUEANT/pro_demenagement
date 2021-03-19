@@ -1,0 +1,83 @@
+.recap {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+
+    /* border: 1px solid blue; */
+}
+.titre {
+    margin-top: 15px;
+    color: #FF7276;
+}
+
+.mobilier-elem { 
+    /* border: 1px solid red; */
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 5px 0px;
+
+}
+.mobilier-liste {
+    /* border: 1px solid rgb(255, 0, 212); */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+    
+}
+.mobilier-info {
+    min-width: 140px;
+}
+
+.piece-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+
+    /* border: 1px solid green; */
+}
+.quantite {
+    background-color: rgb(240, 240, 240);
+    margin: 15px;
+    padding: 12px 20px;
+    border-radius: 50px;
+}
+
+.bouton {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+.btn-p {
+    margin-bottom: 16px;
+}
+.btn-p, .btn-m {
+    width: 24px;
+    height: 24px;
+    background-color: #FF7276;
+    border: none;
+}
+.btn-p .bi, .btn-m .bi{
+    margin-top: -16px;
+}
+.btn-check:active+.btn-danger, .btn-check:checked+.btn-danger, .btn-danger.active, .btn-danger:active, .show>.btn-danger.dropdown-toggle {
+    color: #fff;
+    background-color: #ff444b;
+}

@@ -9,6 +9,9 @@ import CreationCarton from './Carton/Creation_Carton.js'
 import ListeCartons from './Carton/Liste_Cartons.js'
 import ModifierCarton from './Carton/Modifier_Carton.js'
 import MenuCarton from './Carton/Menu_Carton.js'
+import Recapitulatif from './Volume/Recapitulatif';
+import CalculateurVolume from './Volume/CalculateurVolume';
+import TableauDeBord from './Volume/TableauDeBord';
 class App extends React.Component {
   render() {
     return (
@@ -21,6 +24,9 @@ class App extends React.Component {
               <Route path="/ListeCartons" component={ListeCartons} />
               <Route path="/ModifierCarton" component={ModifierCarton} />
               <Route exact path="/" component={MenuCarton} />
+              <Route exact path='/CalculateurVolume' component={CalculateurVolume} />
+              <Route exact path='/Recapitulatif' component={Recapitulatif} />
+              <Route exact path='/TableauDeBord' component={TableauDeBord} />
             </Switch>
           </div>
         </BrowserRouter>
