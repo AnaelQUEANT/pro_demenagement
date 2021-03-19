@@ -311,13 +311,13 @@ app.get('/typemobilier/:nomPiece', (req, res) => {
     })
 })
 
-app.get('/camion', (req, res) => {
-    const nom = req.params.nomPiece;
+app.get('/camion/:vol', (req, res) => {
+    const vol = req.params.vol;
     let connection = setupConnection();
     connection.connect((err) => {
         if (err) throw err;
         console.log("Connecté !");
-        connection.query('SELECT * from Camion', function (error, results, fields) {
+        connection.query(`select * from Camion where Camion.Camion_volume > ${vol} order by Camion_volume asc limit 1`, function (error, results, fields) {
             if (error) throw error;
             res.send(results);
             
