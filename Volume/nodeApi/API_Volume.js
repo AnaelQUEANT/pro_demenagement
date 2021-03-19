@@ -71,7 +71,7 @@ app.get('/carton', (req, res) => {
     })
 })
 
-app.get('/piece', (req, res) => {
+app.get('/typePiece', (req, res) => {
     let connection = setupConnection();
     connection.connect((err) => {
         if (err) throw err;
