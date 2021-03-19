@@ -176,6 +176,7 @@ class CreationCarton extends React.Component {
   render() {
     return (
       <div>
+        <title>Création d'un carton</title>
         <TemplateMenu nom="ListeSalles" />
         <form onSubmit={this.handleSubmit}>
           <br />

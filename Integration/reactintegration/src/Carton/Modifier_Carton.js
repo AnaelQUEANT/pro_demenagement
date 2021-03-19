@@ -71,6 +71,7 @@ class ModifierCarton extends React.Component {
   render() {
     return (
       <div>
+        <title>Modification Carton</title>
         <TemplateMenu nom="ListeSalles" />
         <div>
           {this.state.text}
