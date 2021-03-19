@@ -12,6 +12,11 @@ import MenuCarton from './Carton/Menu_Carton.js'
 import Recapitulatif from './Volume/Recapitulatif';
 import CalculateurVolume from './Volume/CalculateurVolume';
 import TableauDeBord from './Volume/TableauDeBord';
+import Affichette from './Affichette/Affichette.js'
+import Logement from './Affichette/Logement.js'
+import AffichetteLogement from './Affichette/AffichetteLogement.js'
+import Etiquette from './Affichette/Etiquette.js'
+import Carton from './Affichette/Carton.js'
 class App extends React.Component {
   render() {
     return (
@@ -26,6 +31,11 @@ class App extends React.Component {
               <Route exact path="/MenuCarton" component={MenuCarton} />
               <Route exact path='/CalculateurVolume' component={CalculateurVolume} />
               <Route exact path='/Recapitulatif' component={Recapitulatif} />
+              <Route path="/Affichette" component={Affichette} />
+              <Route path="/Logement" component={Logement}/>
+              <Route path="/AffichetteLogement" component={AffichetteLogement}/>
+              <Route path="/Etiquette" component={Etiquette}/>
+              <Route path="/Carton" component={Carton} />
               <Route exact path='/' component={TableauDeBord} />
             </Switch>
           </div>
